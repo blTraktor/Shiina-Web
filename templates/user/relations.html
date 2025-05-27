@@ -26,11 +26,8 @@
                         <div class="rel-card bg-secondary card border-0 rounded-4 h-100 position-relative overflow-hidden">
                             <div class="rel-card-accent position-absolute" style="
                                 <#if relation.relationship_status == "mutual">
-                                    background: linear-gradient(135deg, var(--bs-danger) 0%, transparent 50%);
                                 <#elseif relation.relationship_status == "known">
-                                    background: linear-gradient(135deg, var(--bs-primary) 0%, transparent 50%);
                                 <#else>
-                                    background: linear-gradient(135deg, var(--bs-success) 0%, transparent 50%);
                                 </#if>
                                 height: 100px; width: 100px; top: 0; left: 0; z-index: 1;
                             "></div>

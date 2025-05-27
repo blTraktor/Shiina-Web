@@ -229,6 +229,23 @@ h1 {
     user-select: none;
 }
 
+.circle {
+    width: 60px;
+    height: 60px;
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    line-height: 60px; /* Центрирование текста по вертикали */
+    color: black;
+    font-weight: bold;
+    margin: 0 5px;
+    display: inline-block;
+    user-select: none;
+}
+
+
+
 .hexagon::before,
 .hexagon::after {
     content: "";
@@ -632,7 +649,7 @@ h1 {
 
 .country-selector {
     border-color: var(--bs-action-border-color);
-    border: 1px solid var(--bs-action-border-color);
+    border: 0px solid var(--bs-action-border-color);
     border-radius: 5px;
     display: flex;
     align-items: center;

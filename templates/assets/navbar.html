@@ -2,7 +2,6 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="${c.logoUrl}" alt="Logo" width="100" height="50" class="d-inline-block align-text-top">
-        <span class="badge bg-primary text-dark">BETA</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-7" aria-controls="navbar-collapse-7" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,6 +19,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link <#if actNav == 4>active</#if>" aria-current="page" href="/clans">Clans</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link <#if actNav == 4>active</#if>" aria-current="page" href="https://antoshika.ru/skins/">Skins</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link <#if actNav == 4>active</#if>" aria-current="page" href="https://www.donationalerts.com/r/bltraktor">Donate</a>
           </li>
           <#list navbarItems as item>
           <li class="nav-item">
@@ -47,7 +52,7 @@
             class="form-control me-2 shiina-search-input" 
             oninput="searchShiina(this.value)" 
             type="search" 
-            placeholder="Search ${c.serverName}" 
+            placeholder="Search" 
             aria-label="Search">
           <div id="shiina-search" class="d-none bg-secondary"></div>
 
@@ -65,7 +70,7 @@
         <ul class="dropdown-menu dropdown-menu-lg-end">
             <li><a class="dropdown-item" href="/u/${user.id?c}">Profile</a></li>
             <li><a class="dropdown-item" href="/friends">Friends</a></li>
-            <li><a class="dropdown-item" href="/settings">Profile Settings</a></li>
+            <li><a class="dropdown-item" href="/settings">Settings</a></li>
             <#if userPriv?seq_contains("STAFF")>
             <li><a class="dropdown-item" data-turbo="false" href="/ap/start">Admin Panel</a></li>
             </#if>

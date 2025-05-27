@@ -38,9 +38,8 @@
         <div class="offcanvas-header bg-body-tertiary border-bottom border-opacity-25">
             <a class="sidebar-brand d-flex align-items-center" href="/ap/start">
                 <img src="${c.otherLogoUrl}" alt="icon" width="24" height="24" class="me-2"> 
-                Admin Panel
+                blTraktor
             </a>
-            <small class="text-muted ms-2"><span class="version">v1.0</span></small>
         </div>
 
         <!-- Sidebar Body -->
@@ -53,7 +52,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="/ap/start" class="nav-link <#if actNav == 1>active</#if>">
-                        <i class="fa-solid fa-house shiina-ap-icon"></i> Start
+                        <i class="fa-solid fa-house shiina-ap-icon"></i> Home
                     </a>
                 </li>
                 <li class="nav-item">
@@ -65,12 +64,12 @@
                  <!-- Administrator Section (If Applicable) -->
                  <#if userPriv?seq_contains("MODERATOR")>
                  <li class="mt-4">
-                     <h6 class="sidebar-header text-uppercase">Moderation</h6>
+                     <h6 class="sidebar-header text-uppercase">General</h6>
                      <hr class="sidebar-divider my-1">
                  </li>
                  <li class="nav-item">
                      <a href="/ap/bancho" class="nav-link <#if actNav == 16>active</#if>">
-                         <i class="fa-solid fa-server shiina-ap-icon"></i> Bancho
+                         <i class="fa-solid fa-server shiina-ap-icon"></i> Online
                      </a>
                  </li>
                  <li class="nav-item">
@@ -85,7 +84,7 @@
                  </li>
                  <li class="nav-item">
                     <a href="/ap/chat" class="nav-link <#if actNav == 15>active</#if>">
-                        <i class="fa-solid fa-comment shiina-ap-icon"></i> Chat Explorer
+                        <i class="fa-solid fa-comment shiina-ap-icon"></i> Chat History
                     </a>
                 </li>
                  </#if>
@@ -101,15 +100,6 @@
                         <i class="fa-solid fa-cog shiina-ap-icon"></i> System
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="/ap/settings" class="nav-link <#if actNav == 18>active</#if>">
-                        <i class="fa-solid fa-screwdriver-wrench shiina-ap-icon"></i> Settings
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/ap/themes" class="nav-link <#if actNav == 12>active</#if>">
-                        <i class="fa-solid fa-brush shiina-ap-icon"></i> Themes
-                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="/ap/groups" class="nav-link <#if actNav == 13>active</#if>">
@@ -125,8 +115,7 @@
 
                 <!-- Other Section -->
                 <li class="mt-4">
-                    <h6 class="sidebar-header text-uppercase">Other</h6>
-                    <hr class="sidebar-divider my-1">
+                    <h6 class="sidebar-header text-uppercase"></h6>
                 </li>
                 <li class="nav-item">
                     <a href="/" class="nav-link">

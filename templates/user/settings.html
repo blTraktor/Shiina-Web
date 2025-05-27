@@ -30,6 +30,7 @@
                     <div class="col col-auto">
                         <form id="avatar-upload-form" data-turbo="false" action="/settings/avatar" method="post"
                             enctype="multipart/form-data" class="w-100" onsubmit="return handleAvatarUpload(event)">
+                            <span>only .png</span>
                             <div class="form-group">
                                 <input type="file" name="avatar" id="avatar" accept=".png<#if userPriv?seq_contains("SUPPORTER")>, .gif</#if>" class="form-control">
                             </div>
@@ -59,6 +60,10 @@
                 <div class="shiina-pill px-2 mt-2 d-flex align-items-center">
                     <div class="shiina-pill-icon"></div>
                     <span>Userpage</span>
+                </div>
+                <div class="shiina-pill px-2 mt-2 d-flex align-items-center">
+                    <div class="shiina-null-icon"></div>
+                    <span>Support full <a href="https://osu.ppy.sh/wiki/en/BBCode">BBCode</a></span>
                 </div>
                 <div class="m-2 pb-2">
                     <form action="/settings/userpage" method="post">
@@ -95,7 +100,7 @@
                 
                     <div class="shiina-pill m-0 mb-2 d-flex align-items-center">
                         <div class="shiina-pill-icon"></div>
-                        <span>Identity Change</span>
+                        <span>Country Change</span>
                     </div>
 
 
@@ -111,6 +116,12 @@
                         </select>
                         <button type="submit" class="btn btn-primary mt-2">Change Flag</button>
                     </form>
+
+                    <div class="shiina-pill m-0 mb-2 d-flex align-items-center">
+                        <div class="shiina-pill-icon"></div>
+                        <span>Name Change</span>
+                    </div>
+
                     <form id="nameForm" action="/settings/name" method="post" class="w-100">
 
                         <input type="text" class="form-control mt-2" name="newname" placeholder="New name" />
@@ -123,6 +134,7 @@
                         <div class="shiina-pill-icon"></div>
                         <span>Banner</span>
                     </div>
+                        <span> Recommended size: 934x198 | only .png</span>
                     <form id="banner-upload-form" data-turbo="false" action="/settings/banner" method="post"
                             enctype="multipart/form-data" class="w-100 mt-1" onsubmit="return handleBannerUpload(event)">
                             <div class="form-group">

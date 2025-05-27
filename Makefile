@@ -1,6 +1,6 @@
 install:
-	apt install -y openjdk-21-jdk
-	apt install -y maven
+	sudo apt install -y openjdk-21-jdk
+	sudo apt install -y maven
 	mvn clean install
 
 run:

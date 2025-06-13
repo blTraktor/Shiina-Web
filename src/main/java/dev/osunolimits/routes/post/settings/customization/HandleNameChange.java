@@ -36,7 +36,8 @@ public class HandleNameChange extends Shiina {
 
         String newName = req.queryParams("newname");
         String newSafeName = newName.toLowerCase().replaceAll(" ", "_");
-        if (newName == null || newName.isEmpty() || !newName.matches("^(?! )[\\w\\[\\] -]{2,15}(?<! )$")) {
+        if (newName == null || newName.isEmpty() ||
+            !newName.matches("^(?! )[\\w\\[\\] \\-а-яА-ЯёЁ]{2,15}(?<! )$")) {
             return redirect(res, shiina, "/settings?error=Invalid name");
         }
 

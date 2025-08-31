@@ -56,7 +56,7 @@
                        onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.2)';">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a download href="https://catboy.best/d/${beatmap.set_id?c}" 
+                    <a download href="https://osu.direct/api/d/${beatmap.set_id?c}"
                        class="osu-action-btn osu-download-btn" 
                        title="Download Beatmap"
                        onmouseover="this.style.background='rgba(46,204,113,0.3)'; this.style.borderColor='#2ecc71';"

@@ -20,7 +20,7 @@ public class HandleLogin extends Shiina {
     public Object handle(Request req, Response res) throws Exception {
         ShiinaRequest shiina = new ShiinaRoute().handle(req, res);
         shiina.data.put("actNav", 0);
-    
+
         String captchaResponse = req.queryParams("cf-turnstile-response");
 
         if(req.cookie("shiina") != null) {
@@ -30,15 +30,10 @@ public class HandleLogin extends Shiina {
             }
         }
 
-        if(captchaResponse == null || captchaResponse.isEmpty()) {
-            shiina.data.put("error", "Invalid Captcha");
-            return renderTemplate("login.html", shiina, res, req);
-        }
-
         String input = req.queryParams("input");
 
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" +
-                            "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+                "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
         if(input == null || input.isEmpty()) {
             shiina.data.put("error", "Invalid (Username/Mail) or Password");
@@ -56,9 +51,13 @@ public class HandleLogin extends Shiina {
         }
 
         TurnstileQuery turnstileQuery = new TurnstileQuery(new OkHttpClient());
-        if(!turnstileQuery.verifyCaptcha(captchaResponse).success) {
-            shiina.data.put("error", "Invalid Captcha");
-            return renderTemplate("login.html", shiina, res, req);
+        String turnstileKey = App.env.get("TURNSTILE_KEY");
+        String turnstileSecret = App.env.get("TURNSTILE_SECRET");
+        if(turnstileKey != null && !turnstileKey.isEmpty() && turnstileSecret != null && !turnstileSecret.isEmpty()) {
+            if(captchaResponse == null || captchaResponse.isEmpty() || !turnstileQuery.verifyCaptcha(captchaResponse).success) {
+                shiina.data.put("error", "Invalid Captcha");
+                return renderTemplate("login.html", shiina, res, req);
+            }
         }
 
         String selectSql = "";
@@ -89,13 +88,11 @@ public class HandleLogin extends Shiina {
 
         if(rememberMe) {
             res.cookie("shiina", new SessionBuilder(userId, req).build(), 604800);
-        }else {
+        } else {
             res.cookie("shiina", new SessionBuilder(userId, req).build());
         }
 
         res.redirect("/?register=success");
         return notFound(res, shiina);
     }
-
-    
 }

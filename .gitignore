@@ -47,6 +47,7 @@ inputFiles.lst
 
 # theming
 /themes/*
+!/themes/traktortheme
 /static/css/theme-*.css
 /static/css/themedev-*.css
 

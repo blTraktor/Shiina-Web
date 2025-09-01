@@ -1,0 +1,128 @@
+/*!
+ * ----------------------------------------------------------------------------
+ * Shiina Custom Theme - Light & Dark (Blue Accent)
+ * ----------------------------------------------------------------------------
+ */
+
+[data-bs-core=traktortheme] [class*="fa-"] {
+    color: #00b2ff !important;
+}
+
+[data-bs-core=traktortheme] .btn-discord {
+    background-color: #00b2ff !important;
+    color: white !important;
+}
+
+[data-bs-core=traktortheme] .btn-primary {
+    background-color: #0197d7 !important;
+
+}
+[data-bs-core=traktortheme] .btn-primary:hover {
+    background-color: #00b2ff !important;
+    color: white !important;
+}
+
+[data-bs-core=traktortheme] .btn-secondary {
+    background-color: #024b6c !important;
+}
+
+[data-bs-core=traktortheme] .nav-link.active {
+    background-color: #007fb1 !important;
+    border-radius: 10px;
+}
+
+[data-bs-core=traktortheme] .osu-beatmap-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: none !important;
+    transform: none !important;
+}
+
+[data-bs-core=traktortheme] .rights.mt-3 a {
+    color: #00b2ff !important;
+}
+
+[data-bs-core=traktortheme] .btn-secondary:hover {
+    background-color: #0280b8 !important;
+}
+
+[data-bs-core=traktortheme] .text-primary {
+    color: #00b2ff !important;
+}
+
+
+[data-bs-core=traktortheme] .btn.dropdown-item {
+    background-color: rgba(2, 71, 71, 0) !important;
+}
+
+[data-bs-core=traktortheme] .badge.bg-primary {
+    display: none !important;
+}
+
+[data-bs-core=traktortheme] .footer-heading {
+    color: #00b2ff !important;
+}
+
+[data-bs-core=traktortheme] .card-body.bg-body a {
+    color: #00b2ff !important;
+}
+
+[data-bs-core=traktortheme] .card-body.bg-body a:hover {
+    color: #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .btn.btn-secondary.dropdown-toggle {
+    background-color: #191c20 !important;
+}
+
+[data-bs-core=traktortheme] .img-fluid.rounded.shadow-lg {
+    border-radius: 50% !important;
+    border: 4px solid gray;
+    object-fit: cover;
+}
+
+[data-bs-core=traktortheme] .me-2:not(.shiina-search-input) {
+    border-radius: 50% !important;
+    object-fit: cover;
+}
+
+[data-bs-core=traktortheme] .home-video video {
+    object-fit: cover;
+    height: 400px;
+    display: block;
+}
+
+[data-bs-core=traktortheme] .shiina-level-bar-progress {
+    border-radius: 10px;
+    background-color: #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .hexagon {
+    background-color: #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .hexagon::before {
+    border-bottom: 17.32px solid #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .hexagon::after {
+    border-top: 17.32px solid #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .shiina-playtime-value,
+[data-bs-core=traktortheme] .shiina-playtime-type {
+    color: #4bb8fa !important;
+}
+
+[data-bs-core=traktortheme] .shiina-playtime-show {
+    border-bottom: 2px solid #4bb8fa;
+}
+
+[data-bs-core=traktortheme] #avatar-preview {
+    border-radius: 50% !important;
+}

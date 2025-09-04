@@ -3,7 +3,10 @@
 <div class="container">
     <div class="card w-100">
         <div class="bg-secondary border-0 card-header text-body d-flex justify-content-between align-items-center py-4">
-            <span class="h1 fw-bold mb-0">Login</span>
+            <span class="h1 fw-bold mb-0">
+                <i class="fas fa-lock-open me-2"></i>
+                Login
+            </span>
         </div>
 
         <div class="card-body bg-body px-4">
@@ -22,10 +25,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group mb-3">
-                            <label>Email or Username</label>
+                            <label>Email/Username</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="add-on-1">@</span>
-                                <input name="input" required type="text" class="form-control" placeholder="Email or Username" aria-label="Email or Username" aria-describedby="add-on-1">
+                                <input name="input" required type="text" class="form-control" placeholder="email@email.com" aria-label="email@email.com" aria-describedby="add-on-1">
                             </div>
                         </div>
                     </div>
@@ -37,7 +40,7 @@
                             <label>Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-                                <input required name="password" type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="add-on-1">
+                                <input required name="password" type="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="add-on-1">
                             </div>
                         </div>
                     </div>
@@ -55,13 +58,16 @@
                 <div class="row my-3">
                     <div class="col-md-12">
                         <input type="hidden" name="redirect" value="">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-right-from-bracket me-2"></i>
+                            Login
+                        </button>
                     </div>
                 </div>
             </form>
 
             <div class="mt-4">
-                <i class="fa fa-user fa-fw"></i> No account? <a href="/register">Register</a>
+                No account? -> <a href="/register">Register</a>
             </div>
         </div>
     </div>

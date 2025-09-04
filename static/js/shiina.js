@@ -486,9 +486,9 @@ function initPlayCountGraph() {
             data: {
                 labels: dataLabels,
                 datasets: [{
-                    label: '# of Plays',
+                    label: ' Plays',
                     data: values,
-                    borderColor: getBsPrimaryColor(),
+                    borderColor: 'rgb(143, 243, 241)',
                     borderWidth: 2,
                     tension: 0.1,
                 }]
@@ -602,7 +602,7 @@ function loadScorePanel(
     );
 
     const gradeDisplay = grade.toLowerCase() === 'f'
-        ? `<div class="osu-grade grade-f"><i class="fas fa-times"></i></div>`
+        ? `<div class="osu-grade"><img src="/img/ranking/ranking-F.png" alt="Grade F"></div>`
         : `<div class="osu-grade"><img src="/img/ranking/ranking-${grade}.png" alt="Grade ${grade}"></div>`;
 
    return `

@@ -30,8 +30,7 @@
                                 </span>
                             </div>
                             <#if score.mods?size != 0>
-                            <div class="d-flex align-items-center bg-danger bg-opacity-20 rounded px-3 py-2">
-                                <i class="fas fa-m me-1"></i> <i class="fas fa-o me-1"></i>  <i class="fas fa-d me-1"></i>  <i class="fas fa-s me-1"></i>
+                            <div class="d-flex align-items-center bg-warning bg-opacity-20 rounded px-3 py-2">
                                 <span class="fw-medium">
                                     <#assign passedMods=score.mods>
                                     <#include "/freemarker/modconvert.ftl">
@@ -43,7 +42,7 @@
                     
                     <!-- Action Buttons -->
                     <div class="d-flex gap-2 flex-wrap">
-                        <a download href="${apiUrlPub}/v1/get_replay?id=${score.id?c}" class="btn btn-light btn-lg">
+                        <a download href="${apiUrlPub}/v1/get_replay?id=${score.id?c}" class="btn btn-outline-secondary-download">
                             <i class="fa-solid fa-download me-2"></i>Download Replay
                         </a>
                         <!-- TODO: Reports 
@@ -64,25 +63,25 @@
                 <div class="col-md-3 col-6">
                     <div class="text-center p-3 bg-primary bg-opacity-10 rounded border border-primary border-opacity-25">
                         <div class="h2 fw-bold text-primary mb-1">${score.pp?string("0")}<small class="fs-6 text-muted">pp</small></div>
-                        <div class="text-muted small">Performance Points</div>
+                        <div class="text small">Performance Points</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
-                    <div class="text-center p-3 bg-success bg-opacity-10 rounded border border-success border-opacity-25">
+                    <div class="text-center p-3 bg-success-accuracy bg-opacity-10 rounded border border-success border-opacity-25">
                         <div class="h2 fw-bold text-success mb-1">${score.acc?string("0.00")}<small class="fs-6 text-muted">%</small></div>
-                        <div class="text-muted small">Accuracy</div>
+                        <div class="text small">Accuracy</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="text-center p-3 bg-info bg-opacity-10 rounded border border-info border-opacity-25">
                         <div class="h2 fw-bold text-info mb-1">${score.score}</div>
-                        <div class="text-muted small">Score</div>
+                        <div class="text small">Score</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="text-center p-3 bg-warning bg-opacity-10 rounded border border-warning border-opacity-25">
                         <div class="h2 fw-bold text-warning mb-1">${score.maxCombo}<small class="fs-6 text-muted">x</small></div>
-                        <div class="text-muted small">Max Combo</div>
+                        <div class="text small">Max Combo</div>
                     </div>
                 </div>
             </div>
@@ -114,20 +113,20 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="text-center p-2 bg-warning bg-opacity-10 rounded border border-warning border-opacity-25">
-                                        <div class="fw-bold text-warning">${score.n100}</div>
+                                    <div class="text-center p-2 bg-warning-300 bg-opacity-10 rounded border border-warning border-opacity-25">
+                                        <div class="fw-bold text-warning-300">${score.n100}</div>
                                         <div class="small text-muted">100s</div>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="text-center p-2 bg-warning bg-opacity-10 rounded border border-warning border-opacity-25">
-                                        <div class="fw-bold text-warning">${score.nkatu}</div>
+                                    <div class="text-center p-2 bg-warning-300 bg-opacity-10 rounded border border-warning border-opacity-25">
+                                        <div class="fw-bold text-warning-300">${score.nkatu}</div>
                                         <div class="small text-muted">Katus</div>
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="text-center p-2 bg-danger bg-opacity-10 rounded border border-danger border-opacity-25">
-                                        <div class="fw-bold text-danger">${score.n50}</div>
+                                    <div class="text-center p-2 bg-warning bg-opacity-10 rounded border border-warning border-opacity-25">
+                                        <div class="fw-bold text-warning">${score.n50}</div>
                                         <div class="small text-muted">50s</div>
                                     </div>
                                 </div>

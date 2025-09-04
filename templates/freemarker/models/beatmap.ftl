@@ -33,7 +33,7 @@
                             <span>${beatmap.plays}</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-check"></i>
                             <span>${beatmap.passes}</span>
                         </div>
                         <#if beatmap.last_update??>

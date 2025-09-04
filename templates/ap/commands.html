@@ -1,16 +1,16 @@
 <#include "assets/base.html">
 
- <div class="container-fluid bg-body-tertiary border-bottom p-3">
-    <div class="row align-items-center">
-      <div class="col-auto">
-        <h5 class="mb-0">
-          <i class="fa-solid fa-terminal"></i> Commands
-        </h5>
-      </div>
-    </div>
+<div class="container-fluid my-3">
+  
+<div class="row align-items-center mb-3">
+  <div class="col-auto">
+      <h5 class="mb-0">
+          <i class="fa-solid fa-terminal"></i> Commands list
+      </h5>
   </div>
+</div>
 
-
+</div>
 
 <div class="container mt-4">
 
@@ -19,33 +19,23 @@
     <#if userPriv?seq_contains("NOMINATOR")>
       <h3 class="my-3">Nominator Commands</h3>
       <div class="list-group-item">
-        <strong>!requests</strong> (<em>aliases: !reqs</em>): Check the nomination request queue.
+        <strong>!requests</strong> [<em>aliases: !reqs</em>]: Check the nomination request queue.
       </div>
       <div class="list-group-item">
-        <strong>!_map</strong>: Change the ranked status of the most recently /np'ed map.
+        <strong>!map</strong>: [!map (rank/love/unrank) (map/set)] Change the status of the most recently /np map.
       </div>
     </#if>
 
     <#if userPriv?seq_contains("MODERATOR")>
       <h3 class="my-3">Moderator Commands</h3>
       <div class="list-group-item">
-        <strong>!notes</strong>: Retrieve logs for a specified player.
-      </div>
-      <div class="list-group-item">
-        <strong>!addnote</strong>: Add a note to a specified player.
-      </div>
-      <div class="list-group-item">
         <strong>!silence</strong>: Silence a specified player with duration and reason.
       </div>
       <div class="list-group-item">
         <strong>!unsilence</strong>: Unsilence a specified player.
       </div>
-    </#if>
-
-    <#if userPriv?seq_contains("ADMINISTRATOR")>
-      <h3 class="my-3">Admin Commands</h3>
-      <div class="list-group-item">
-        <strong>!user</strong> (<em>aliases: !u</em>): Show general information about a given user.
+	  <div class="list-group-item">
+        <strong>!user</strong> [<em>aliases: !u</em>]: Show general information about a given user.
       </div>
       <div class="list-group-item">
         <strong>!restrict</strong>: Restrict a specified player's account with a reason.
@@ -54,41 +44,16 @@
         <strong>!unrestrict</strong>: Unrestrict a specified player's account with a reason.
       </div>
       <div class="list-group-item">
+        <strong>!wipe</strong>: Сlears the account completely.
+      </div>
+      <div class="list-group-item">
         <strong>!alert</strong>: Send a notification to all players.
       </div>
       <div class="list-group-item">
-        <strong>!alertuser</strong> (<em>aliases: !alertu</em>): Send a notification to a specified player.
+        <strong>!alertuser</strong> [<em>aliases: !alertu</em>]: Send a notification to a specified player.
       </div>
       <div class="list-group-item">
-        <strong>!switchserv</strong>: Switch client internal endpoints to a specified IP.
-      </div>
-      <div class="list-group-item">
-        <strong>!shutdown</strong>: Gracefully shut down the server.
-      </div>
-    </#if>
-
-    <#if userPriv?seq_contains("TOURNEY_MANAGER")>
-      <h3 class="my-3">Mappool Management Commands</h3>
-      <div class="list-group-item">
-        <strong>!pool_help</strong> (<em>aliases: !h</em>): Show all documented mappool commands accessible.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_create</strong> (<em>aliases: !c</em>): Add a new mappool to the database.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_delete</strong> (<em>aliases: !del, !d</em>): Remove a mappool from the database.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_add</strong> (<em>aliases: !a</em>): Add a new map to a mappool in the database.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_remove</strong> (<em>aliases: !rm, !r</em>): Remove a map from a mappool in the database.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_list</strong> (<em>aliases: !l</em>): List all existing mappools.
-      </div>
-      <div class="list-group-item">
-        <strong>!pool_info</strong> (<em>aliases: !i</em>): Retrieve all information for a specific mappool.
+        <strong>!reconnect</strong>: You can reconnect to the server or reconnect the player to the server.
       </div>
     </#if>
 

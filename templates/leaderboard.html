@@ -27,7 +27,7 @@
         <div class="card mt-4 d-flex justify-content-center align-items-center">
             <div class="px-auto row d-flex justify-content-center align-items-center w-100">
                 <button onclick="removeParam('country')"
-                    class="col-auto country-selector pt-1 btn <#if !country??> btn-primary active <#else>btn-secondary</#if>">No Country</button>
+                    class="col-auto country-selector pt-1 btn <#if !country??> btn-primary active <#else>btn-secondary</#if>">All</button>
                 <#list countries as flag>
                     <#if flag_index==10>
                         <span data-bs-toggle="modal" data-bs-target="#country-modal" style="user-select: none;"
@@ -133,7 +133,7 @@
                                         
                                         <#if sort != "acc" && player.accuracy??>
                                             <div class="text-center">
-                                                <div class="small text-muted">Acc</div>
+                                                <div class="small text-muted">Accuracy</div>
                                                 <div class="fw-bold text-success">${player.accuracy}%</div>
                                             </div>
                                         </#if>

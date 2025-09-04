@@ -23,7 +23,7 @@
           <div class="card-body p-4">
             <div class="d-flex align-items-center mb-4">
               <div class="position-relative me-3">
-                <img src="${avatarServer}/${id}" alt="${aname} avatar" class="border" style="width: 80px; height: 80px; object-fit: cover;" />
+                <img src="${avatarServer}/${id}" alt="${aname} avatar" class="border" style="width: 80px; height: 80px; object-fit: cover; border-radius: 5px;" />
                
               </div>
               <div class="flex-grow-1">
@@ -167,7 +167,7 @@
             </#if>
 
             <a type="button" href="/ap/chat?search=${id}" class="btn btn-outline-primary">
-              <i class="fa-solid fa-comment"></i> View in Chat Explorer
+              <i class="fa-solid fa-comment"></i> View Messages
             </a>
           </div>
         </div>
@@ -178,10 +178,9 @@
               <h5 class="mb-0 fw-bold">Clan</h5>
             </div>
             <div class="card-body">
-              <p>Clan ID: ${clan_id}</p>
-              <p>Clan Name: ${clan_name}</p>
-              <p>Clan Tag: ${clan_tag}</p>
-              <p>Clan Privileges: ${clan_priv}</p>
+              <p>ID: ${clan_id}</p>
+              <p>Name: ${clan_name}</p>
+              <p>Tag: ${clan_tag}</p>
             </div>
           </div>
         </#if>
@@ -225,7 +224,7 @@
           <i class="fa-solid fa-link"></i> Generate Recovery URL
         </button>
         <button type="button" data-bs-toggle="modal" data-bs-target="#donatorModal" class="btn btn-warning">
-          <i class="fa-solid fa-gift"></i> Give Donator
+          <i class="fa-solid fa-gift"></i> Give Supporter
         </button>
       </#if>
     </div>

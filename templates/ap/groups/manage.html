@@ -14,25 +14,25 @@
     <div class="container mt-3">
         <div class="mb-3">
             <form action="/ap/groups/manage" method="post">
-                <label for="emoji" class="form-label">Pick an Emoji</label>
+                <label for="emoji" class="form-label">Emoji</label>
                 <div class="input-group">
-                    <input type="text" name="emoji" value="<#if emoji??>${emoji}</#if>" id="emoji" class="form-control" placeholder="Select emoji">
+                    <input type="text" name="emoji" value="<#if emoji??>${emoji}</#if>" id="emoji" class="form-control" placeholder="Jokerge">
                     <button id="emoji-picker-btn" type="button" class="btn btn-outline-secondary">
                         😊
                     </button>
                 </div>
                 <div class="form-group mt-1">
                     <label for="emoji" class="form-label">Choose a name</label>
-                    <input type="text" name="name" value="<#if name??>${name}</#if>" id="name" class="form-control" placeholder="Name">
+                    <input type="text" name="name" value="<#if name??>${name}</#if>" id="name" class="form-control" placeholder="Silly">
                 </div>
                 <div class="form-group mt-1">
-                    <label for="emoji" class="form-label">Pick a description</label>
-                    <input type="text" name="desc" value="<#if desc??>${desc}</#if>" id="desc" class="form-control" placeholder="Description">
+                    <label for="emoji" class="form-label">Description</label>
+                    <input type="text" name="desc" value="<#if desc??>${desc}</#if>" id="desc" class="form-control" placeholder="WYSI">
                 </div>
                 <#if id??>
                     <input type="hidden" name="id" value="${id}">
                 </#if>
-                <button type="submit" class="btn btn-primary mt-3"><#if id??>Edit<#else>Create</#if> Group</button>
+                <button type="submit" class="btn btn-primary mt-3"><#if id??>Edit<#else>Create</#if></button>
             </form>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="emojiPickerModalLabel">Choose an Emoji</h5>
+                    <h5 class="modal-title" id="emojiPickerModalLabel">Emoji</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -1,6 +1,8 @@
 package dev.osunolimits.routes.get;
 
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -173,8 +175,12 @@ public class User extends Shiina {
         shiina.data.put("id", id);
         shiina.data.put("level",
                 LevelCalculator.getLevelPrecise(user.getPlayer().getStats().get(String.valueOf(mode)).getTscore()));
-        shiina.data.put("levelProgress", LevelCalculator
-                .getPercentageToNextLevel(user.getPlayer().getStats().get(String.valueOf(mode)).getTscore()));
+        
+        double levelProgressValue = LevelCalculator.getPercentageToNextLevel(user.getPlayer().getStats().get(String.valueOf(mode)).getTscore());
+        DecimalFormat df = new DecimalFormat("#.###", new DecimalFormatSymbols(Locale.US));
+        String formattedProgress = df.format(levelProgressValue);
+        shiina.data.put("levelProgress", formattedProgress);
+
         shiina.data.put("clanTag", clanTag);
         shiina.data.put("u", user);
         shiina.data.put("mode", mode);
@@ -191,5 +197,4 @@ public class User extends Shiina {
         private String name;
         private String desc;
     }
-
 }

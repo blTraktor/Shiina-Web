@@ -18,28 +18,28 @@
                 </div>
                 <div class="row justify-content-center my-4" id="counts">
                     <div class="col-4 col-md-2 d-flex flex-column align-items-center">
-                        <img src="/img/ranking/ranking-XH.png" class="img-fluid" alt="Ranking XH"
-                            style="max-width: 30px;">
+                        <img src="/img/ranking/ranking-XH.png" class="img-fluid-ranking" alt="Ranking XH"
+                            style="max-width: 40px;">
                         <small class="mt-1">${u.player.stats[mode?string].xh_count}</small>
                     </div>
                     <div class="col-4 col-md-2 d-flex flex-column align-items-center">
-                        <img src="/img/ranking/ranking-X.png" class="img-fluid" alt="Ranking X"
-                            style="max-width: 30px;">
+                        <img src="/img/ranking/ranking-X.png" class="img-fluid-ranking" alt="Ranking X"
+                            style="max-width: 40px;">
                         <small class="mt-1">${u.player.stats[mode?string].x_count}</small>
                     </div>
                     <div class="col-4 col-md-2 d-flex flex-column align-items-center">
-                        <img src="/img/ranking/ranking-SH.png" class="img-fluid" alt="Ranking SH"
-                            style="max-width: 30px;">
+                        <img src="/img/ranking/ranking-SH.png" class="img-fluid-ranking" alt="Ranking SH"
+                            style="max-width: 40px;">
                         <small class="mt-1">${u.player.stats[mode?string].sh_count}</small>
                     </div>
                     <div class="col-4 col-md-2 d-flex flex-column align-items-center">
-                        <img src="/img/ranking/ranking-S.png" class="img-fluid" alt="Ranking S"
-                            style="max-width: 30px;">
+                        <img src="/img/ranking/ranking-S.png" class="img-fluid-ranking" alt="Ranking S"
+                            style="max-width: 40px;">
                         <small class="mt-1">${u.player.stats[mode?string].s_count}</small>
                     </div>
                     <div class="col-4 col-md-2 d-flex flex-column align-items-center">
-                        <img src="/img/ranking/ranking-A.png" class="img-fluid" alt="Ranking A"
-                            style="max-width: 30px;">
+                        <img src="/img/ranking/ranking-A.png" class="img-fluid-ranking" alt="Ranking A"
+                            style="max-width: 40px;">
                         <small id="text" class="mt-1">${u.player.stats[mode?string].a_count}</small>
                     </div>
                 </div>
@@ -163,10 +163,10 @@
         </#if>
         <#if clanTag??>
             <a href="/clan/${u.player.info.clan_id}" class="shiina-follower-count">
-                <div class="shiina-follower-count-icon">
+                <div class="shiina-follower-count-icon-tag">
                     <i class="fa-solid fa-hashtag"></i>
                 </div>
-                <div class="shiina-follower-count-body">
+                <div class="shiina-follower-count-body-tag">
                     [${clanTag}]
                 </div>
             </a>

@@ -16,7 +16,11 @@
                 <div class="form-group">
                     <input type="file" name="banner" id="banner" accept=".png" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                <div class="form-text"> Support format only: PNG. Max size: 15MB </div>
+                <button type="submit" class="btn btn-primary mt-2">
+                    <i class="fas fa-upload me-2"></i>
+                    Upload
+                </button>
             </form>
             <form action="/settings/gfx/delete?action=banner" method="post">
                     <input type="hidden" name="action" value="pb">

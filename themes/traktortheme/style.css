@@ -1,33 +1,104 @@
-/*!
- * ----------------------------------------------------------------------------
- * Shiina Custom Theme - Light & Dark (Blue Accent)
- * ----------------------------------------------------------------------------
- */
+[data-bs-core=traktortheme] .fa-download {
+    color: #00ff55 !important;
+}
 
-[data-bs-core=traktortheme] [class*="fa-"] {
+[data-bs-core=traktortheme] .fa-user-plus {
+    color: #37bd63 !important;
+}
+
+[data-bs-core=traktortheme] .fa-circle-xmark {
+    color: #791111 !important;
+}
+
+[data-bs-core=traktortheme] .fa-heart-crack {
+    color: #000000 !important;
+}
+
+[data-bs-core=traktortheme] .fa-times {
+    color: #ff0000 !important;
+}
+
+[data-bs-core=traktortheme] .fa-heart:before {
+    color: #d41886 !important;
+}
+
+[data-bs-core=traktortheme] .fa-download:before {
+    color: #18d495 !important;
+}
+
+[data-bs-core=traktortheme] .fa-gavel:before {
+    color: #b49464 !important;
+}
+
+[data-bs-core=traktortheme] .fa-book:before {
+    color: #b9def7 !important;
+}
+
+[data-bs-core=traktortheme] .fa-user-secret:before {
+    color: #cfcfcf !important;
+}
+
+[data-bs-core=traktortheme] .fa-cloud-upload-alt:before {
+    color: #ffffff !important;
+}
+
+[data-bs-core=traktortheme] .fa-people-robbery:before {
+    color: #ddcaa0 !important;
+}
+
+[data-bs-core=traktortheme] .fa-server:before {
+    color: #68f2f7 !important;
+}
+
+[data-bs-core=traktortheme] .fa-question:before {
+    color: #ec663d !important;
+}
+
+[data-bs-core=traktortheme] .fa-user-group:before {
+    color: #22a9ca !important;
+}
+
+[data-bs-core=traktortheme] .fa-circle-check:before {
+    color: #00ff22 !important;
+}
+
+[data-bs-core=traktortheme] .fa-desktop:before {
+    color: #ff8800 !important;
+}
+
+/* [data-bs-core=traktortheme] [class*="fa-"] {
     color: #00b2ff !important;
+} */
+
+[data-bs-core=traktortheme] .shiina-btn-follow {
+    background-color: #ad2d6f !important;
+}
+
+[data-bs-core=traktortheme] .shiina-btn-follow:hover {
+    background-color: #671c42 !important;
+    color: white !important;
 }
 
 [data-bs-core=traktortheme] .btn-discord {
-    background-color: #00b2ff !important;
+    background-color: rgb(143 156 243 / 72%) !important;
     color: white !important;
 }
 
 [data-bs-core=traktortheme] .btn-primary {
-    background-color: #0197d7 !important;
-
+    background-color: rgb(143 243 242 / 72%);
 }
+
 [data-bs-core=traktortheme] .btn-primary:hover {
-    background-color: #00b2ff !important;
-    color: white !important;
+    background-color: rgb(5, 133, 130);
+    color: white;
 }
 
 [data-bs-core=traktortheme] .btn-secondary {
-    background-color: #024b6c !important;
+    background-color: rgb(46 77 76 / 72%) !important;
 }
 
 [data-bs-core=traktortheme] .nav-link.active {
-    background-color: #007fb1 !important;
+    background-color: rgb(143 243 242 / 72%) !important;
     border-radius: 10px;
 }
 
@@ -44,15 +115,15 @@
 }
 
 [data-bs-core=traktortheme] .rights.mt-3 a {
-    color: #00b2ff !important;
+    color: rgb(5, 133, 130) !important;
 }
 
 [data-bs-core=traktortheme] .btn-secondary:hover {
-    background-color: #0280b8 !important;
+    background-color: rgb(5, 133, 130) !important;
 }
 
 [data-bs-core=traktortheme] .text-primary {
-    color: #00b2ff !important;
+    color: rgb(143, 243, 241) !important;
 }
 
 
@@ -65,15 +136,15 @@
 }
 
 [data-bs-core=traktortheme] .footer-heading {
-    color: #00b2ff !important;
+    color: rgb(5, 133, 130) !important;
 }
 
 [data-bs-core=traktortheme] .card-body.bg-body a {
-    color: #00b2ff !important;
+    color: #ffffff !important;
 }
 
 [data-bs-core=traktortheme] .card-body.bg-body a:hover {
-    color: #4bb8fa !important;
+    color: #ffffff !important;
 }
 
 [data-bs-core=traktortheme] .btn.btn-secondary.dropdown-toggle {
@@ -81,13 +152,13 @@
 }
 
 [data-bs-core=traktortheme] .img-fluid.rounded.shadow-lg {
-    border-radius: 50% !important;
+    /*border-radius: 50% !important;*/
     border: 4px solid gray;
     object-fit: cover;
 }
 
 [data-bs-core=traktortheme] .me-2:not(.shiina-search-input) {
-    border-radius: 50% !important;
+    /*border-radius: 50% !important;*/
     object-fit: cover;
 }
 
@@ -99,30 +170,222 @@
 
 [data-bs-core=traktortheme] .shiina-level-bar-progress {
     border-radius: 10px;
-    background-color: #4bb8fa !important;
+    background-color: rgb(143, 243, 241) !important;
 }
 
 [data-bs-core=traktortheme] .hexagon {
-    background-color: #4bb8fa !important;
+    background-color: rgb(143, 243, 241) !important;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
 }
 
 [data-bs-core=traktortheme] .hexagon::before {
     border-bottom: 17.32px solid #4bb8fa !important;
+    display: none;
 }
 
 [data-bs-core=traktortheme] .hexagon::after {
     border-top: 17.32px solid #4bb8fa !important;
+    display: none;
 }
 
 [data-bs-core=traktortheme] .shiina-playtime-value,
 [data-bs-core=traktortheme] .shiina-playtime-type {
-    color: #4bb8fa !important;
+    color: rgb(143, 243, 241) !important;
 }
 
 [data-bs-core=traktortheme] .shiina-playtime-show {
-    border-bottom: 2px solid #4bb8fa;
+    border-bottom: 2px solid rgb(143, 243, 241);
 }
 
-[data-bs-core=traktortheme] #avatar-preview {
-    border-radius: 50% !important;
+[data-bs-core=traktortheme] .px-3 {
+    background-color: darkgreen;
+}
+
+[data-bs-core=traktortheme] .osu-grade {
+    background: none !important;
+    border: none !important;
+}
+
+[data-bs-core=traktortheme] .osu-score-content {
+    padding: 16px 16px;
+    background: linear-gradient(90deg, rgba(49, 49, 49, 0.5) 0%, rgba(0, 0, 0, 0.801) 100%, transparent 100%)
+}
+
+[data-bs-core=traktortheme] .osu-grade img {
+    width: 64px;
+    height: 64px;
+}
+
+[data-bs-core=traktortheme] .bg-success {
+    background-color: hsl(145deg 57.68% 50.11%) !important;
+}
+
+[data-bs-core=traktortheme] .mt-1 {
+    margin-top: auto;
+}
+
+[data-bs-core=traktortheme] .img-fluid.rounded.shadow-lg {
+    border: none !important;
+}
+
+[data-bs-core=traktortheme] .bottom-0 {
+    bottom: -7px !important;
+}
+
+[data-bs-core=traktortheme] .end-0 {
+    right: -14px !important;
+}
+
+[data-bs-core=traktortheme] .btn.btn-secondary.dropdown-toggle {
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important;
+}
+
+[data-bs-core=traktortheme] .list-group-flush {
+    background: rgb(81 81 81 / 41%);
+    border-radius: 10px !important;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+}
+
+[data-bs-core=traktortheme] .ms-1 {
+    margin-left: 0 !important;
+}
+
+[data-bs-core=traktortheme] .shiina-border {
+    border-color: rgba(137, 137, 137, 1)!important;
+}
+
+[data-bs-core=traktortheme] .mb-4 {
+    flex-wrap: wrap!important; 
+    justify-content: center;
+}
+
+[data-bs-core=traktortheme] .text-center {
+    flex-wrap: wrap!important; 
+    justify-content: center;
+}
+
+[data-bs-core=traktortheme] .shiina-up-card {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-bs-core=traktortheme] .py-5 {
+    padding-top: 0  !important;
+}
+
+[data-bs-core=traktortheme] .country-selector {
+    border: 0 !important;
+}
+
+[data-bs-core=traktortheme] .bg-secondary {
+    background-color: rgb(44 91 99 / 41%) !important;
+}
+
+[data-bs-core=traktortheme] .bg-light {
+    background-color: hsl(214.3deg 12.3% 20%) !important;
+}
+
+[data-bs-core=traktortheme] .active>.page-link {
+    background-color: rgb(143 243 241 / 57%)!important;
+}
+
+[data-bs-core=traktortheme] .country-selector:hover {
+    background-color: hsl(180.81deg 34.26% 57.65%)!important;
+}
+
+[data-bs-core=traktortheme] .stat-item i {
+    color: rgb(5, 133, 130)!important;
+}
+
+[data-bs-core=traktortheme] .btn-outline-primary {
+    --bs-btn-color: hsl(0, 0%, 100%)!important;
+    --bs-btn-border-color: hsl(303.4deg 100% 50%);
+    --bs-btn-hover-bg: hsl(303.4deg 100% 50%);
+    --bs-btn-hover-border-color: hsl(303.4deg 100% 50%);
+}
+
+[data-bs-core=traktortheme] .p-3 {
+    padding: 0 !important;
+}
+
+[data-bs-core=traktortheme] .text-success {
+    color: rgb(255, 255, 255) !important;
+}
+
+[data-bs-core=traktortheme] .relation-avatar img {
+    border: 0 !important;
+}
+
+[data-bs-core=traktortheme] .border {
+    border: 0 !important;
+}
+
+[data-bs-core=traktortheme] .footer-dark a:hover {
+    color: rgb(5, 133, 130)!important;
+}
+
+[data-bs-core=traktortheme] .rounded {
+    border-radius: 4px!important;
+}
+
+[data-bs-core=traktortheme] .btn-outline-light {
+    --bs-btn-border-color: hsl(328.85deg 69.66% 51.18%)!important;
+    --bs-btn-hover-bg: hsl(328.85deg 69.66% 51.18% / 54%);
+    --bs-btn-hover-border-color: hsl(328.85deg 69.66% 51.18% / 54%);
+}
+
+[data-bs-core=traktortheme] .btn-outline-secondary-download {
+    --bs-btn-hover-bg: hsl(118.38deg 38.24% 56.89% / 81%)!important;
+    --bs-btn-hover-color: var(--bs-primary-foreground);
+    --bs-btn-color: hsl(0deg 0% 100%);
+    --bs-btn-border-color: hsl(118.38deg 38.24% 56.89%);
+}
+
+[data-bs-core=traktortheme] .btn-outline-secondary {
+    --bs-btn-border-color: rgb(5, 133, 130)!important;
+    --bs-btn-hover-bg: rgb(5, 133, 130);
+    --bs-btn-color: hsl(0deg 0% 100%);
+}
+
+[data-bs-core=traktortheme] .shiina-follower-count-icon-tag {
+    background-color: hsl(173.77deg 54.25% 53.85%)!important;
+    display: inline-block;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+[data-bs-core=traktortheme] .shiina-follower-count-body-tag {
+    background-color: hsl(173.77deg 54.25% 53.85% / 39%)!important;
+    display: inline-block;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+[data-bs-core=traktortheme] .bg-success-accuracy {
+    background-color: hsl(145deg 95.16% 27.56% / 63%) !important;
+}
+
+[data-bs-core=traktortheme] .bg-warning-300 {
+    background-color: hsl(133deg 79% 42% / 41%) !important;
+}
+
+[data-bs-core=traktortheme] .text-warning-300 {
+    color: hsl(133, 79%, 42%) !important;
+}
+
+[data-bs-core=traktortheme] .text-danger-50 {
+    background-color: hsl(49, 87%, 51%) !important;
+}
+
+[data-bs-core=traktortheme] .bg-danger-50 {
+    background-color: hsla(49, 87%, 51%, 0.74) !important;
+}
+
+[data-bs-core=traktortheme] #register,
+[data-bs-core=traktortheme] #registerbutton {
+    color: #ffffff !important;
 }

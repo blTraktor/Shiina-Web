@@ -36,7 +36,7 @@
           <#list users as apuser>
             <tr onclick="window.location='/ap/user?id=${apuser.id?c}'" style="cursor: pointer;">
               <td class="text-center align-middle">
-                <img src="${avatarServer}/${apuser.id?c}" alt="${apuser.name} avatar" style="width: 50px; height: 50px;">
+                <img src="${avatarServer}/${apuser.id?c}" alt="${apuser.name} avatar" style="width: 50px; height: 50px; border-radius: 5px;">
               </td>
               <td class="text-center align-middle">${apuser.name}</td>
               <td class="priv-cell text-center align-middle">

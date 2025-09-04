@@ -21,6 +21,12 @@
           <li class="nav-item">
             <a class="nav-link <#if actNav == 4>active</#if>" aria-current="page" href="/clans">Clans</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link <#if actNav == 6>active</#if>" aria-current="page" href="https://hatsunemiku39.ru/skins">Skins</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <#if actNav == 7>active</#if>" aria-current="page" href="https://www.donationalerts.com/r/bltraktor">Donate</a>
+          </li>
           <#list navbarItems as item>
           <#if item.loggedInOnly>
              <#if user??>
@@ -47,16 +53,13 @@
             </ul>
           </li>
         </ul>
-        <div class="d-none d-md-none d-lg-flex">
-            <div class="line-vert shiina-border"></div>
-        </div>
         <form class="d-flex my-2 my-lg-0 shiina-search-form" role="search">
           <input 
             class="form-control me-2 shiina-search-input" 
             oninput="searchShiinaDebounced(this.value)" 
             onkeydown="handleSearchKeydown(event)"
             type="search" 
-            placeholder="Search ${c.serverName}" 
+            placeholder="Search" 
             aria-label="Search">
           <div id="shiina-search" class="d-none bg-secondary"></div>
 

@@ -63,7 +63,7 @@
                 <tr>
                     <td>
                         <div class="d-flex align-items-center">
-                            <img src="${avatarServer}/${log.userId?c}" class="img-fluid me-2" width="20" height="20">
+                            <img src="${avatarServer}/${log.userId?c}" class="img-fluid me-2" width="20" height="20" style="border-radius: 5px;">
                             <a href="/ap/user?id=${log.userId}" class="text-decoration-none fw-medium">${log.userName}</a>
                         </div>
                     </td>
@@ -78,17 +78,17 @@
                         <#elseif log.action == "REMOVEPRIV">
                             <span class="badge bg-danger">REMOVED PRIVILEGE</span>
                         <#elseif log.action == "WIPE">
-                            <span class="badge bg-dark">WIPED</span>
+                            <span class="badge bg-danger">WIPED</span>
                         <#elseif log.action == "GIVEDONATOR">
-                            <span class="badge bg-warning text-dark">GAVE DONATOR</span>
+                            <span class="badge bg-warning text-dark">GIVE DONATOR</span>
                         <#elseif log.action == "RMPB">
                             <span class="badge bg-secondary">REMOVED AVATAR</span>
                          <#elseif log.action == "RMUP">
                             <span class="badge bg-secondary">REMOVED USERPAGE</span>
                         <#elseif log.action == "ALERT_ALL">
-                            <span class="badge bg-secondary">GLOBAL ALERT</span>
+                            <span class="badge bg-secondary">ALERT</span>
                         <#elseif log.action == "RANK">
-                            <span class="badge bg-purple" style="background-color: #6f42c1 !important;">RANKED</span>
+                            <span class="badge bg-purple" style="background-color: #42c157 !important;">RANKED</span>
                         <#else>
                             <span class="badge bg-light text-dark">${log.action}</span>
                         </#if>
@@ -97,7 +97,7 @@
                     <td>
                         <#if log.targetId?? && log.targetName?? && log.targetName != "NULL">
                             <div class="d-flex align-items-center">
-                                <img src="${avatarServer}/${log.targetId?c}" class="img-fluid me-2" width="20" height="20">
+                                <img src="${avatarServer}/${log.targetId?c}" class="img-fluid me-2" width="20" height="20" style="border-radius: 5px;">
                                 <a href="/ap/user?id=${log.targetId?c}" class="text-decoration-none">${log.targetName}</a>
                             </div>
                         <#elseif log.action == "ALERT_ALL">
@@ -128,7 +128,7 @@
                             
                             <#if log.status?? && log.status != 0>
                                 <div class="mt-1">
-                                    <span class="badge bg-info">New Status: ${convertStatusBack(log.status)}</span>
+                                    <span class="badge bg-success">New Status: ${convertStatusBack(log.status)}</span>
                                 </div>
                             </#if>
                         </div>

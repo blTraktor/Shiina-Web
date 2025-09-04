@@ -59,7 +59,7 @@
                     <div class="osu-beatmap-stats mb-4">
                         <div class="stat-item">
                             <i class="fa-solid fa-star"></i>
-                            <span>${beatmap.diff?string("0.00")}★</span>
+                            <span>${beatmap.diff?string("0.00")}*</span>
                         </div>
                         <div class="stat-item">
                             <i class="fa-solid fa-headphones"></i>
@@ -67,14 +67,14 @@
                         </div>
                         <div class="stat-item">
                             <i class="fa-solid fa-stopwatch"></i>
-                            <span>${(beatmap.totalLength / 60)?string("0.0")}m</span>
+                            <span>${(beatmap.totalLength / 60)?string("0.0")} min</span>
                         </div>
                         <div class="stat-item">
                             <i class="fa-solid fa-play"></i>
                             <span>${beatmap.plays} plays</span>
                         </div>
                         <div class="stat-item">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-check"></i>
                             <span>${beatmap.passes} passes</span>
                         </div>
                         <#if beatmap.plays gt 0>
@@ -99,7 +99,7 @@
                         </#if>
                         <small class="text-white-50 d-flex align-items-center">
                             <i class="fa-solid fa-clock me-1"></i>
-                            Updated<span class="ms-1" data-timestamp-format="date" data-timestamp="${beatmap.lastUpdate}"> ${beatmap.lastUpdate}</span>
+                            Updatedㅤ<span class="ms-1" data-timestamp-format="date" data-timestamp="${beatmap.lastUpdate}">  ${beatmap.lastUpdate}</span>
                         </small>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                     <div class="row g-3">
                         <div class="col-6 col-lg-3">
                             <div class="text-center p-3 rounded ">
-                                <div class="h5 mb-1 text-primary">${beatmap.cs}</div>
+                                <div class="h5 mb-1 text-success">${beatmap.cs}</div>
                                 <small class="text-muted">Circle Size</small>
                             </div>
                         </div>
@@ -126,13 +126,13 @@
                         </div>
                         <div class="col-6 col-lg-3">
                             <div class="text-center p-3 rounded ">
-                                <div class="h5 mb-1 text-warning">${beatmap.od}</div>
+                                <div class="h5 mb-1 text-success">${beatmap.od}</div>
                                 <small class="text-muted">Overall Difficulty</small>
                             </div>
                         </div>
                         <div class="col-6 col-lg-3">
                             <div class="text-center p-3 rounded ">
-                                <div class="h5 mb-1 text-info">${beatmap.ar}</div>
+                                <div class="h5 mb-1 text-success">${beatmap.ar}</div>
                                 <small class="text-muted">Approach Rate</small>
                             </div>
                         </div>
@@ -181,10 +181,10 @@
                     <i class="fa-regular fa-circle me-2"></i>View on osu!
                 </a>
                 <a href="osu://dl/${beatmap.setId?c}" class="btn btn-primary">
-                    <i class="fa-solid fa-download me-2"></i>Download with osu!direct
+                    <i class="fa-solid fa-cloud-upload-alt me-2"></i>Download with osu!direct
                 </a>
-                <a href="https://osu.direct/api/d/${beatmap.setId?c}" class="btn btn-outline-secondary">
-                    <i class="fa-solid fa-floppy-disk me-2"></i>Download beatmap
+                <a href="https://osu.direct/api/d/${beatmap.setId?c}" class="btn btn-outline-secondary-download">
+                    <i class="fa-solid fa-download me-2"></i>Download beatmap
                 </a>
             </div>
         </div>

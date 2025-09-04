@@ -15,7 +15,7 @@
             <div class="col-12 col-sm-3 col-md-2 text-center mb-3 mb-sm-0">
                 <div class="position-relative d-inline-block">
                     <img id="avatar-preview" src="${avatarServer}/${user.id?c}" class="img-fluid rounded shadow-sm"
-                        alt="Avatar" style="max-width: 120px; border: 3px solid var(--bs-border-color);">
+                        alt="Avatar" style="max-width: 120px;">
 
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <input type="file" name="avatar" id="avatar"
                             accept=".png<#if userPriv?seq_contains('SUPPORTER')>, .gif</#if>" class="form-control">
                         <div class="form-text">
-                            Supported formats: PNG<#if userPriv?seq_contains('SUPPORTER')>, GIF</#if>. Max size: 2MB
+                            Supported formats: PNG<#if userPriv?seq_contains('SUPPORTER')>, GIF</#if>. Max size: 15MB
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">

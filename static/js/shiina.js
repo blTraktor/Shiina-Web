@@ -606,6 +606,18 @@ function loadScorePanel(
         ? `<div class="osu-grade"><img src="/img/ranking/ranking-F.png" alt="Grade F"></div>`
         : `<div class="osu-grade"><img src="/img/ranking/ranking-${grade}.png" alt="Grade ${grade}"></div>`;
 
+    let downloadButton = ``;
+
+    if(score.grade != "F") {
+        downloadButton = `<a download href="${apiUrl}/v1/get_replay?id=${scoreId}" 
+           class="osu-action-btn osu-download-btn" 
+           title="Download Replay"
+           onmouseover="this.style.background='rgba(46,204,113,0.3)'; this.style.borderColor='#2ecc71';"
+           onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.2)';">
+            <i class="fas fa-download"></i>
+        </a>`;
+    }
+
    return `
     <div class="osu-score-card mb-3">
         <div class="osu-score-container">
@@ -645,13 +657,7 @@ function loadScorePanel(
                        onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.2)';">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a download href="${apiUrl}/v1/get_replay?id=${scoreId}" 
-                       class="osu-action-btn osu-download-btn" 
-                       title="Download Replay"
-                       onmouseover="this.style.background='rgba(46,204,113,0.3)'; this.style.borderColor='#2ecc71';"
-                       onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.2)';">
-                        <i class="fas fa-download"></i>
-                    </a>
+                    ${downloadButton}
                 </div>
             </div>
         </div>

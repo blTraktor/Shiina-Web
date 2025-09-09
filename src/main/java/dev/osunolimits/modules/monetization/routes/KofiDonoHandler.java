@@ -19,6 +19,7 @@ import dev.osunolimits.modules.Shiina;
 import dev.osunolimits.modules.ShiinaRoute;
 import dev.osunolimits.modules.ShiinaRoute.ShiinaRequest;
 import dev.osunolimits.modules.monetization.MonetizationConfig;
+import dev.osunolimits.plugins.events.admin.OnDonationEvent;
 import dev.osunolimits.modules.XmlConfig;
 import dev.osunolimits.routes.ap.api.PubSubModels;
 import dev.osunolimits.routes.ap.api.PubSubModels.GiveDonatorInput;
@@ -55,6 +56,10 @@ public class KofiDonoHandler extends Shiina {
         String transactionId = data.optString("kofi_transaction_id");
         Double amount = Double.parseDouble(data.optString("amount"));
         String fromName = data.optString("from_name");
+        String currency = data.optString("currency");
+        String email = data.optString("email");
+
+        new OnDonationEvent(transactionId, amount, currency, fromName + "(" + email + ")").callListeners();
 
         if (!MonetizationConfig.KOFI_CONFIG.getVerificationToken().equals(verificationToken)) {
             apiHandler.addRequiredParameter("verification_token", "string", "invalid verification token");

@@ -51,8 +51,25 @@
                                                     <input type="number" name="value" id="setting-${setting.key}"
                                                         class="form-control" value="${setting.value}">
                                                 <#else>
-                                                    <input type="<#if setting.secret>password<#else>text</#if>" name="value" id="setting-${setting.key}"
-                                                        class="form-control" value="${setting.value}">
+                                                    <#if setting.secret>
+                                                        <div class="input-group">
+                                                            <input type="password" name="value" id="setting-${setting.key}"
+                                                                class="form-control" value="${setting.value}">
+                                                            <button type="button" class="btn btn-outline-secondary" 
+                                                                onclick="togglePasswordVisibility('setting-${setting.key}')" 
+                                                                title="Toggle visibility">
+                                                                <i class="fa-solid fa-eye" id="eye-setting-${setting.key}"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-secondary" 
+                                                                onclick="copyToClipboard('setting-${setting.key}')" 
+                                                                title="Copy to clipboard">
+                                                                <i class="fa-solid fa-copy"></i>
+                                                            </button>
+                                                        </div>
+                                                    <#else>
+                                                        <input type="text" name="value" id="setting-${setting.key}"
+                                                            class="form-control" value="${setting.value}">
+                                                    </#if>
                                                 </#if>
                                             </div>
                                         </div>

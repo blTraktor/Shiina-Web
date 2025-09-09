@@ -52,3 +52,64 @@ function timeUntil(dateInput, unix) {
 
     return isPast ? result.trim() + ' ago' : result.trim() + ' from now';
 }
+
+function togglePasswordVisibility(inputId) {
+    const input = document.getElementById(inputId);
+    const eyeIcon = document.getElementById('eye-' + inputId);
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
+
+function copyToClipboard(inputId) {
+    const input = document.getElementById(inputId);
+    const value = input.value;
+    
+    // Create a temporary textarea element to copy the value
+    const tempTextarea = document.createElement('textarea');
+    tempTextarea.value = value;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+    
+    try {
+        document.execCommand('copy');
+        // Show a brief success indication
+        showCopySuccess(inputId);
+    } catch (err) {
+        console.error('Failed to copy: ', err);
+        // Fallback for modern browsers
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(value).then(() => {
+                showCopySuccess(inputId);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    }
+    
+    document.body.removeChild(tempTextarea);
+}
+
+function showCopySuccess(inputId) {
+    // Find the copy button for this input
+    const input = document.getElementById(inputId);
+    const copyButton = input.parentNode.querySelector('button[onclick*="copyToClipboard"]');
+    const icon = copyButton.querySelector('i');
+    
+    // Temporarily change the icon to show success
+    const originalClasses = icon.className;
+    icon.className = 'fa-solid fa-check text-success';
+    
+    // Reset after 1.5 seconds
+    setTimeout(() => {
+        icon.className = originalClasses;
+    }, 1500);
+}

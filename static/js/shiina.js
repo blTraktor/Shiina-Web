@@ -435,7 +435,8 @@ function initPlayCountGraph() {
                 datasets: [{
                     label: 'Rank',
                     data: values,
-                    borderColor: getBsPrimaryColor(),
+                    borderColor: 'rgb(143, 243, 241)',
+                    borderWidth: 2,
                     tension: 0.1
                 }]
             },

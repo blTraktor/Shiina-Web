@@ -389,3 +389,11 @@
 [data-bs-core=traktortheme] #registerbutton {
     color: #ffffff !important;
 }
+
+[data-bs-core=traktortheme] #welcome {
+    color: #d7d8db !important;
+}
+
+[data-bs-core=traktortheme] .card-header:first-child {
+    background-color: rgb(44 91 99 / 41%)!important;
+}

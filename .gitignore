@@ -37,6 +37,7 @@ inputFiles.lst
 
 # VS Code
 .vscode/
+.idea/
 
 # shiina-web
 

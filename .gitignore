@@ -58,6 +58,7 @@ inputFiles.lst
 /.cache/
 /.logs/
 /data/
+/docs/
 
 # modular
 /plugins/

@@ -8,11 +8,25 @@
             <!-- Content Overlay -->
             <div class="osu-beatmap-content">
                 <!-- Status Badge -->
-                <div class="osu-beatmap-status">
-                    <span class="status-badge bg-${convertStatusBackColor(beatmap.status)}">
-                        ${convertStatusBack(beatmap.status)}
-                    </span>
-                </div>
+            <div class="osu-beatmap-status">
+                <span class="status-badge bg-${convertStatusBackColor(beatmap.status)}">
+                    <#assign statusText = convertStatusBack(beatmap.status)>
+                    
+                    <#if statusText == "Ranked">
+                        <i class="fa-solid fa-check me-1 text-success"></i>
+                    <#elseif statusText == "Approved">
+                        <i class="fa-solid fa-check-to-slot me-1 text-success"></i>
+                    <#elseif statusText == "Qualified">
+                        <i class="fa-solid fa-gears me-1 text-success"></i>
+                    <#elseif statusText == "Loved">
+                        <i class="fa-solid fa-face-kiss-wink-heart me-1 text-success"></i>
+                    <#elseif statusText == "Pending">
+                        <i class="fa-solid fa-hourglass-half me-1 text-success"></i>
+                    </#if>
+
+                    ${statusText}
+                </span>
+            </div>
                 
                 <!-- Beatmap Info -->
                 <div class="osu-beatmap-info">

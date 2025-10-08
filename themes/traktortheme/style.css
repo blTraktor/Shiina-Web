@@ -2,6 +2,10 @@
     color: #00ff55 !important;
 }
 
+[data-bs-core=traktortheme] .fa-money-bills {
+    color: #00ff55 !important;
+}
+
 [data-bs-core=traktortheme] .fa-user-plus {
     color: #37bd63 !important;
 }
@@ -394,6 +398,14 @@
     color: #d7d8db !important;
 }
 
+[data-bs-core=traktortheme] #loved {
+    color: #ffffff !important;
+}
+
 [data-bs-core=traktortheme] .card-header:first-child {
     background-color: rgb(44 91 99 / 41%)!important;
+}
+
+[data-bs-core=traktortheme] .status-badge {
+    color: white !important;
 }

@@ -23,8 +23,16 @@
 
         <!-- Profile Section -->
         <div class="card rounded my-4">
-            <div class="bg-gradient rounded position-relative"
-                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="bg-gradient rounded position-relative overflow-hidden">
+                <#if uprivs?seq_contains("SUPPORTER")>
+                    <img class="shiina-banner position-absolute top-0 start-0 w-100 h-100"
+                        src="/banner/${id?c}"
+                        alt="User banner"
+                        style="object-fit: cover; opacity: 0.4;">
+                </#if>
+                <div class="position-absolute top-0 start-0 w-100 h-100"
+                    style="background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.8));"></div>
+
                 <div class="row p-4 position-relative">
                     <!-- Profile Picture -->
                     <div class="col-12 col-md-3 d-flex justify-content-center align-items-center mb-3 mb-md-0">
@@ -38,6 +46,7 @@
                             </#if>
                         </div>
                     </div>
+
                     <!-- Player Name -->
                     <div class="col-12 col-md-9 d-flex flex-column justify-content-center text-white">
                         <div class="mb-2">
@@ -47,14 +56,14 @@
                             <div class="groupPlace d-flex flex-wrap gap-2 mt-2 mb-3">
                                 <#list groups as group>
                                     <span
-                                        class="badge shiina-badge bg-light bg-opacity-25 text-white py-2 rounded-pill pe-3"><span
-                                            class="groupEmoji me-2">${group.emoji}</span>${group.name}</span>
+                                        class="badge shiina-badge bg-light bg-opacity-25 text-white py-2 rounded-pill pe-3">
+                                        <span class="groupEmoji me-2">${group.emoji}</span>${group.name}
+                                    </span>
                                 </#list>
                             </div>
                         </div>
                         <#if status.player_status.online==true>
-                            <div
-                                class="d-flex align-items-center bg-gradient bg-opacity-20 rounded-pill px-3 py-2 w-fit">
+                            <div class="d-flex align-items-center bg-gradient bg-opacity-20 rounded-pill px-3 py-2 w-fit">
                                 <div class="bg-success rounded-circle me-2" style="width: 8px; height: 8px;"></div>
                                 <span class="fw-medium">
                                     <#if status.player_status.status.action==0>Idle
@@ -67,13 +76,6 @@
                     </div>
                 </div>
             </div>
-            <#if uprivs?seq_contains("SUPPORTER")>
-                <div class="row">
-                    <div class="col col-12">
-                        <img class="shiina-banner mb-2" src="/banner/${id?c}" alt="">
-                    </div>
-                </div>
-            </#if>
 
             <#include "user/stats.html">
 

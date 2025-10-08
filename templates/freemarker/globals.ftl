@@ -22,13 +22,13 @@
 
 <#function convertStatusBackColor color>
     <#switch color>
-        <#case 0><#return "secondary"><#break>
-        <#case 1><#return "warning"><#break>
-        <#case 2><#return "dark"><#break>
-        <#case 3><#return "success"><#break>
-        <#case 4><#return "info"><#break>
+        <#case 0><#return "success"><#break>
+        <#case 1><#return "success"><#break>
+        <#case 2><#return "success"><#break>
+        <#case 3><#return "info"><#break>
+        <#case 4><#return "warning"><#break>
         <#case 5><#return "danger"><#break>
-        <#default><#return "body"><#break>
+        <#default><#return "success"><#break>
     </#switch>
 </#function>
 

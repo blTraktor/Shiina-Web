@@ -24,7 +24,7 @@ Be more respectful to [Hatsune Miku](https://antoshika.ru/hatsunemiku).
 ### 🔰 Ссылки | Links
 - Discord -> [discord/3jBQs9buYe](https://discord.gg/3jBQs9buYe)
 - osubancho!clan -> [osu.ppy.sh/MIKUDAYO](https://osu.ppy.sh/teams/3041)
-- Developer & Author frontend -> [github/Shiina-Web](https://github.com/osu-NoLimits/Shiina-Web)
+- Developer & Author frontend -> [github/Shiina-Web](https://github.com/blTraktor/Shiina-Web)
 - Edited by -> [antoshika.ru](https://antoshika.ru) & [KozacheShapka](https://osutraktor.ru/u/3)
 - Email -> [info@osutraktor.ru](mailto://info@osutraktor.ru)
 

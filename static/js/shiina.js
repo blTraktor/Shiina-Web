@@ -4,7 +4,28 @@ var out2;
 var turnstileId = null;
 
 
+// Save scroll position instantly on navigation
+
+document.addEventListener("turbo:before-visit", function (event) {
+    // Save scroll if navigating to the same path (ignore query params)
+    const currentUrl = new URL(window.location.href);
+    const nextUrl = new URL(event.detail.url, window.location.origin);
+    if (currentUrl.pathname === nextUrl.pathname) {
+        sessionStorage.setItem("shiina-scroll", window.scrollY);
+    } else {
+        sessionStorage.removeItem("shiina-scroll");
+    }
+});
+
 loadEventTurbo = document.addEventListener("turbo:load", function () {
+    // Restore scroll position if available (for same path)
+    const savedScroll = sessionStorage.getItem("shiina-scroll");
+    if (savedScroll !== null) {
+        window.scrollTo(0, parseInt(savedScroll));
+        sessionStorage.removeItem("shiina-scroll");
+    }
+
+    performOnboarding();
     loadUserPage();
     loadComments();
     const nodesWithTimestamp = document.querySelectorAll('[data-timestamp]');
@@ -33,6 +54,27 @@ loadEventTurbo = document.addEventListener("turbo:load", function () {
 
     updateTooltips();
 });
+
+function performOnboarding() {
+    const onboarding = document.getElementById('onboarding');
+    if (onboarding !== null) {
+        // store the interval ID
+        const intervalId = setInterval(sendRequest, 10000);
+
+        function sendRequest() {
+            fetch('/api/v1/onboarding', { method: 'GET' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.priv !== 1) {
+                        // stop the interval using its ID
+                        clearInterval(intervalId);
+                        Turbo.visit('/u/' + data.id);
+                    }
+                })
+                .catch(err => console.error('OnBoarding Request failed', err));
+        }
+    }
+}
 
 function initUserpageEditor() {
     if(document.getElementById('editor') != undefined) {

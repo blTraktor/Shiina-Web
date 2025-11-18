@@ -90,7 +90,7 @@ public class ScoreQuery {
             beatmap.setLast_update(scoreRs.getString("last_update"));
             beatmap.setStatus(scoreRs.getInt("bm_status"));
 
-            UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + score.getUserId()),
+            UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + score.getUserId()),
                     UserInfoObject.class);
             if (PermissionHelper.hasPrivileges(userInfo.priv, PermissionHelper.Privileges.SUPPORTER)) {
                 userInfo.groups.add(ShiinaSupporterBadge.getInstance().getGroup());

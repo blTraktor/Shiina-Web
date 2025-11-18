@@ -69,14 +69,14 @@ public class ManageGroup extends Shiina {
                 if(g.id == Integer.parseInt(req.queryParams("id"))) {
                     for (Integer uid : g.getUserIds()) {
                         App.log.debug("Try Removing group from user: " + uid + " group: " + id);
-                        UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + uid), UserInfoObject.class);
+                        UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + uid), UserInfoObject.class);
                         for(int i = 0; i < userInfo.groups.size(); i++) {
                             if(userInfo.groups.get(i).id == Integer.parseInt(id)) {
                                 userInfo.groups.remove(i);
                                 App.log.debug("Removed group from user: " + uid + " group: " + id);
                             }
                         }
-                        App.jedisPool.set("shiina:user:" + uid, gson.toJson(userInfo));
+                        App.appCache.set("shiina:user:" + uid, gson.toJson(userInfo));
                     }
                    
                 }
@@ -88,7 +88,7 @@ public class ManageGroup extends Shiina {
                 }
             }
 
-            App.jedisPool.set("shiina:groupRegistry", gson.toJson(groups));
+            App.appCache.set("shiina:groupRegistry", gson.toJson(groups));
             return redirect(res, shiina, "/ap/groups");
         }
 

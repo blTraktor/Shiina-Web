@@ -1,8 +1,7 @@
 package dev.osunolimits.modules;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.StringWriter;
 
 import dev.osunolimits.main.App;
 import dev.osunolimits.main.WebServer;
@@ -10,7 +9,6 @@ import dev.osunolimits.modules.ShiinaRoute.ShiinaRequest;
 import dev.osunolimits.modules.utils.ThemeLoader;
 import dev.osunolimits.plugins.NavbarRegister;
 import dev.osunolimits.routes.get.modular.ModuleRegister;
-import dev.osunolimits.routes.get.modular.ShiinaModule;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import spark.Request;
@@ -44,15 +42,8 @@ public class Shiina implements Route {
         shiina.data.put("domain", domain);
         shiina.data.put("devMode", App.devMode);
         shiina.data.put("themeIdent", ThemeLoader.generatedIdent);
-
-        List<String> modulesRaw = new ArrayList<>();
-        if (ModuleRegister.getModulesForPage("globals") != null) {
-            for (ShiinaModule module : ModuleRegister.getModulesForPage("globals")) {
-                modulesRaw.add(module.handle(req, res, shiina));
-            }
-        }
-
-        shiina.data.put("globalModules", modulesRaw);
+        
+        shiina.data.put("globalModules", ModuleRegister.getModulesRawForPage("globals", req, res, shiina));
         shiina.data.put("profileNavbarItems", NavbarRegister.getProfileItems());
         try {
             Template templateFree = WebServer.freemarkerCfg.getTemplate(template);

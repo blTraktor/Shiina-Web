@@ -1,0 +1,30 @@
+<#include "assets/base.html">
+
+<div class="container my-4">
+    <div class="card bg-dark text-white shadow-lg">
+        <div class="card-body">
+            <h2 class="mb-4"><i class="fa fa-user-check me-2"></i>Pending Verification</h2>
+            <div class="d-flex justify-content-center align-items-center mb-4" style="height: 48px;">
+                <div id="onboarding" class="spinner-border text-white" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <p class="lead">Your account is currently pending verification. To complete the process, just login to your osu! client</p>
+        </div>
+    </div>
+    <div class="card bg-secondary text-white mt-4 shadow">
+        <div class="card-body">
+            <h4 class="mb-3"><i class="fa fa-info-circle me-2"></i>Instructions</h4>
+            <#if doc??>
+                ${doc.content}
+            <#else>
+                <div class="alert alert-warning" role="alert">
+                    <i class="fa fa-exclamation-triangle me-2"></i>The documentation file <code>connect.md</code> is missing in the <code>docs/</code> directory. Please contact the server administrator.
+                </div>
+            </#if>
+        </div>
+    </div>
+    <span>Your account can be deleted for inactivity after 3 months, if you not verify.</span>
+</div>
+
+<#include "assets/footer.html">

@@ -65,7 +65,7 @@ public class ManageClan extends Shiina {
         clan.owner = clanRS.getInt("owner");
         clan.createdAt = clanRS.getString("created_at");
 
-        UserInfoObject userInfo = new Gson().fromJson(App.jedisPool.get("shiina:user:" + clan.owner), UserInfoObject.class);
+        UserInfoObject userInfo = new Gson().fromJson(App.appCache.get("shiina:user:" + clan.owner), UserInfoObject.class);
         clan.ownerName = userInfo.name;
         shiina.data.put("clan", clan);
 
@@ -84,7 +84,7 @@ public class ManageClan extends Shiina {
         ResultSet clanPendingRS = shiina.mysql.Query(clanPendingQuery, clanId);
         Gson gson = new Gson();
         while(clanPendingRS.next()) {
-            UserInfoObject pending = gson.fromJson(App.jedisPool.get("shiina:user:" + clanPendingRS.getInt("userid")), UserInfoObject.class);
+            UserInfoObject pending = gson.fromJson(App.appCache.get("shiina:user:" + clanPendingRS.getInt("userid")), UserInfoObject.class);
             pendingMembers.add(pending);
         }
 
@@ -93,7 +93,7 @@ public class ManageClan extends Shiina {
         List<UserInfoObject> deniedMembers = new ArrayList<>();
         ResultSet clanDeniedRS = shiina.mysql.Query(clanDeniedQuery, clanId);
         while(clanDeniedRS.next()) {
-            UserInfoObject denied = gson.fromJson(App.jedisPool.get("shiina:user:" + clanDeniedRS.getInt("userid")), UserInfoObject.class);
+            UserInfoObject denied = gson.fromJson(App.appCache.get("shiina:user:" + clanDeniedRS.getInt("userid")), UserInfoObject.class);
             deniedMembers.add(denied);
         }
 

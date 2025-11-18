@@ -31,7 +31,7 @@ public class HandleTokenDeletion extends Shiina {
         StringCipher cipher = new StringCipher(App.appSecret);
         token = cipher.decode(token);
 
-        String userJson = App.jedisPool.get("shiina:auth:" + token);
+        String userJson = App.appCache.get("shiina:auth:" + token);
 
         if (userJson == null || userJson.isEmpty()) {
             return redirect(res, shiina, "/settings/auth?error=Invalid token");
@@ -50,7 +50,7 @@ public class HandleTokenDeletion extends Shiina {
                 return redirect(res, shiina, "/settings/auth?error=Invalid token");
             }
 
-            App.jedisPool.del("shiina:auth:" + token);
+            App.appCache.del("shiina:auth:" + token);
             return redirect(res, shiina, "/settings/auth?info=Token was deleted");
 
         } catch (JsonSyntaxException e) {

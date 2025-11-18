@@ -18,7 +18,7 @@ public class Bot extends Shiina {
         ShiinaRequest shiina = new ShiinaRoute().handle(req, res);
         shiina.data.put("actNav", 0);
 
-        UserInfoObject userInfo = new Gson().fromJson(App.jedisPool.get("shiina:user:" + 1), UserInfoObject.class);
+        UserInfoObject userInfo = new Gson().fromJson(App.appCache.get("shiina:user:" + 1), UserInfoObject.class);
 
         shiina.data.put("u", userInfo);
         SEOBuilder seo = new SEOBuilder("Profile of " + userInfo.getName(), App.customization.get("homeDescription").toString(), App.env.get("AVATARSRV") + "/" + "1");

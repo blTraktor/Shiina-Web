@@ -17,13 +17,13 @@ public class HandleDataRequest extends Shiina {
             return redirect(res, shiina, "/login?path=/settings/data");
         }
         String cooldownKey = "shiina:user:" + shiina.user.id + ":data_cooldown";
-        String timestamp = App.jedisPool.get(cooldownKey);
+        String timestamp = App.appCache.get(cooldownKey);
 
         if(timestamp != null && System.currentTimeMillis() < Long.parseLong(timestamp)) {
             return redirect(res, shiina, "/settings/data?error=You can download your data again in &timestamp=" + timestamp);
         }
 
-        App.jedisPool.setex(cooldownKey, 3600, String.valueOf(System.currentTimeMillis() + 3600000));
+        App.appCache.set(cooldownKey, String.valueOf(System.currentTimeMillis() + 3600000), 3600);
         DataExporter exporter = new DataExporter(shiina.user.id);
         byte[] data = exporter.exportData();
         res.type("application/zip");

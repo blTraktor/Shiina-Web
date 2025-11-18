@@ -55,7 +55,7 @@ public class ProcessGroup extends Shiina {
             return notFound(res, shiina);
         }
 
-        UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + id), UserInfoObject.class);
+        UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + id), UserInfoObject.class);
         if(userInfo == null) {
             return notFound(res, shiina);
         }
@@ -70,7 +70,7 @@ public class ProcessGroup extends Shiina {
             g.name = groupResult.getString("name");
             g.emoji = groupResult.getString("emoji");
             userInfo.groups.add(g);
-            App.jedisPool.set("shiina:user:" + id, gson.toJson(userInfo));
+            App.appCache.set("shiina:user:" + id, gson.toJson(userInfo));
             GroupRegistry groupRegistry = new GroupRegistry();
             ArrayList<dev.osunolimits.modules.utils.GroupRegistry.Group> groups = groupRegistry.getCurrentGroupRegistry();
             boolean foundMatch = false;
@@ -89,7 +89,7 @@ public class ProcessGroup extends Shiina {
                 groups.add(group);
             }
 
-            App.jedisPool.set("shiina:groupRegistry", gson.toJson(groups));
+            App.appCache.set("shiina:groupRegistry", gson.toJson(groups));
 
             shiina.mysql.Exec("INSERT INTO `sh_groups_users` (`user_id`, `group_id`) VALUES (?, ?);", id, groupId);
         }else if(action.equals("remove")) {
@@ -101,7 +101,7 @@ public class ProcessGroup extends Shiina {
                 }
                 
             }
-            App.jedisPool.set("shiina:user:" + id, gson.toJson(userInfo));
+            App.appCache.set("shiina:user:" + id, gson.toJson(userInfo));
 
             GroupRegistry groupRegistry = new GroupRegistry();
             ArrayList<dev.osunolimits.modules.utils.GroupRegistry.Group> groups = groupRegistry.getCurrentGroupRegistry();
@@ -112,7 +112,7 @@ public class ProcessGroup extends Shiina {
                 }
             }
 
-            App.jedisPool.set("shiina:groupRegistry", gson.toJson(groups));
+            App.appCache.set("shiina:groupRegistry", gson.toJson(groups));
 
             shiina.mysql.Exec("DELETE FROM `sh_groups_users` WHERE `user_id` = ? AND `group_id` = ?;", id, groupId);
         }else {

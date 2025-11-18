@@ -10,6 +10,10 @@
     </div>
   </div>
 
+  <#if apProfile?? && (apProfile?size gt 0)>
+    <#assign half = (apProfile?size / 2)?ceiling>
+  </#if>
+
   <div class="container-fluid mt-2">
     <div class="row">
       <div class="col-12 col-md-6">
@@ -109,6 +113,12 @@
             </ul>
           </div>
         </div>
+
+        <#if apProfile?? && (apProfile?size gt 0)>
+          <#list apProfile[0..half-1] as module>
+            ${module}
+          </#list>
+        </#if>
       </div>
 
       <div class="col-12 col-md-6">
@@ -185,6 +195,11 @@
           </div>
         </#if>
 
+        <#if apProfile?? && (apProfile?size gt 0)>
+          <#list apProfile[half..] as module>
+            ${module}
+          </#list>
+        </#if>
 
       </div>
     </div>

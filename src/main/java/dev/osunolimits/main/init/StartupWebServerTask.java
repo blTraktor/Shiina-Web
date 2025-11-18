@@ -7,6 +7,7 @@ import dev.osunolimits.main.init.engine.RunableInitTask;
 public class StartupWebServerTask extends RunableInitTask {
     @Override
     public void execute() throws Exception {
+        System.setProperty("java.awt.headless", "true");
         App.webServer = new WebServer();
 
         int minWebServerThreads = Integer.parseInt(App.env.get("MIN_THREADS"));

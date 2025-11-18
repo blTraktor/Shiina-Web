@@ -63,6 +63,7 @@ inputFiles.lst
 
 # modular
 /plugins/
+/static/plugins
 /templates/modules/plugins
 /static/robots.txt
 

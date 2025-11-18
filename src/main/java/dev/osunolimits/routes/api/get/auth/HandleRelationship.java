@@ -30,7 +30,7 @@ public class HandleRelationship extends Shiina {
             user2 = Integer.parseInt(req.queryParams("u"));
         }
 
-        if(App.jedisPool.get("shiina:user:" + user2) == null) {
+        if(App.appCache.get("shiina:user:" + user2) == null) {
             shiina.mysql.close();
             return "invalid user";
         }

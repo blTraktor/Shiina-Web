@@ -79,6 +79,10 @@
 
             <#include "user/stats.html">
 
+            <#list modulesTop as module>
+                ${module}
+            </#list>
+
             <#include "user/rankgraph.html">
 
             <#include "user/userpage.html">
@@ -92,6 +96,11 @@
             <#include "user/playcountgraph.html">
 
             <#include "user/achievements.html">
+
+            <#list modulesBottom as module>
+                ${module}
+            </#list>
+
         </div>
     </div>
 <input type="hidden" id="offsetFirstPlaces" value="0">

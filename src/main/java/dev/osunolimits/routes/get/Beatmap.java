@@ -219,7 +219,7 @@ public class Beatmap extends Shiina {
             score.setUserId(scoreQuery.getInt("userid"));
             score.setName(scoreQuery.getString("name"));
             score.setCountry(scoreQuery.getString("country"));
-            UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + score.getUserId()),
+            UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + score.getUserId()),
                     UserInfoObject.class);
 
             if(PermissionHelper.hasPrivileges(userInfo.priv, PermissionHelper.Privileges.SUPPORTER)) {

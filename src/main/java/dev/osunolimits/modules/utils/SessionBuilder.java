@@ -35,18 +35,18 @@ public class SessionBuilder {
             user.city = geoLocResponse.getCity();
         } 
 
-        App.jedisPool.setex("shiina:auth:" + authToken, 604800, gson.toJson(user));
-        App.jedisPool.lpush("shiina:user:" + id + ":tokens", authToken);
+        App.appCache.set("shiina:auth:" + authToken, gson.toJson(user), 604800);
+        App.appCache.lpush("shiina:user:" + id + ":tokens", authToken);
         return authToken;
     }
 
     public static void deleteAllSessions(int userId) {
-        List<String> sessionTokens = App.jedisPool.lrange("shiina:user:" + userId + ":tokens", 0, -1);
+        List<Object> sessionTokens = App.appCache.lrange("shiina:user:" + userId + ":tokens", 0, -1);
         
-        for (String token : sessionTokens) {
-            App.jedisPool.del("shiina:auth:" + token);
+        for (Object token : sessionTokens) {
+            App.appCache.del("shiina:auth:" + (String) token);
         }
         
-        App.jedisPool.del("shiina:user:" + userId + ":tokens");
+        App.appCache.del("shiina:user:" + userId + ":tokens");
     }
 }

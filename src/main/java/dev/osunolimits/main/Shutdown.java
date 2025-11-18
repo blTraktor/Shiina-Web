@@ -44,9 +44,9 @@ public class Shutdown extends Thread {
             Database.dataSource.close();
         }
 
-        if (App.jedisPool != null) {
+        if (App.appCache != null) {
             log.debug("Closing Redis connection pool...");
-            App.jedisPool.close();
+            App.appCache.close();
         }
 
         // Force JVM to perform garbage collection to release any lingering resources

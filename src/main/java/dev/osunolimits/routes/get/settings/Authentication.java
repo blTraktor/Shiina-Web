@@ -42,11 +42,11 @@ public class Authentication extends Shiina {
             shiina.data.put("error", req.queryParams("error"));
         }
 
-        List<String> sessionTokens = App.jedisPool.lrange("shiina:user:" + shiina.user.id + ":tokens", 0, -1);
+        List<Object> sessionTokens = App.appCache.lrange("shiina:user:" + shiina.user.id + ":tokens", 0, -1);
         List<WebSession> webSessions = new ArrayList<>();
-        for (String token : sessionTokens) {
+        for (Object token : sessionTokens) {
 
-            String userJson = App.jedisPool.get("shiina:auth:" + token);
+            String userJson = App.appCache.get("shiina:auth:" + token);
 
             SessionUser user = gson.fromJson(userJson, SessionUser.class);
 
@@ -59,7 +59,7 @@ public class Authentication extends Shiina {
             webSession.setCity(user.getCity());
             webSession.setCountry(user.getCountry());
             StringCipher cipher = new StringCipher(App.appSecret);
-            webSession.setEncToken(cipher.encode(token));
+            webSession.setEncToken(cipher.encode((String) token));
             Client c = userAgentParser.parse(user.getUserAgent());
             if (c != null) {
                 webSession.setBrowser(c.userAgent.family);

@@ -37,7 +37,7 @@ For installation look up our [new documentation](https://osu-nolimits.github.io/
 - ✅ Admin panel with extensible functionality
 
 ### Customization & Extensibility
-- ✅ Multiple theme support (Classic, Modern, Elegant) seen in [THEMING](https://github.com/osu-NoLimits/Shiina-Web/wiki/Theming)
+- ✅ Good theming support [Seen here](https://osu-nolimits.github.io/wiki/theming/)
 - ✅ Java plugin system with event hooks
 - ✅ Extensive API integration
 - ✅ Donation system (Kofi)

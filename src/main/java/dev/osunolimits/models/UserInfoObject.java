@@ -13,7 +13,7 @@ public class UserInfoObject {
     public UserInfoObject() {
     }   
     public UserInfoObject(int id) {
-        UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + id),
+        UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + id),
                         UserInfoObject.class);
         this.id = userInfo.id;
         this.name = userInfo.name;

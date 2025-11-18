@@ -24,6 +24,7 @@ import dev.osunolimits.modules.ShiinaRoute.ShiinaRequest;
 import dev.osunolimits.modules.utils.SEOBuilder;
 import dev.osunolimits.modules.utils.ShiinaAchievementsSorter;
 import dev.osunolimits.modules.utils.ShiinaSupporterBadge;
+import dev.osunolimits.routes.get.modular.ModuleRegister;
 import dev.osunolimits.utils.Validation;
 import dev.osunolimits.utils.osu.LevelCalculator;
 import dev.osunolimits.utils.osu.OsuConverter;
@@ -111,7 +112,7 @@ public class User extends Shiina {
 
         }
 
-        UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + id), UserInfoObject.class);
+        UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + id), UserInfoObject.class);
 
         UserStatusQuery userStatusQuery = new UserStatusQuery();
         UserStatus userStatus = userStatusQuery.getUserStatus(id);
@@ -168,6 +169,9 @@ public class User extends Shiina {
         shiina.data.put("achievements", achievements);
         shiina.data.put("achievementGroups", ShiinaAchievementsSorter.achievements);
         
+        shiina.data.put("modulesTop", ModuleRegister.getModulesRawForPage("user_top", req, res, shiina));
+        shiina.data.put("modulesBottom", ModuleRegister.getModulesRawForPage("user_bottom", req, res, shiina));
+
         shiina.data.put("uprivs", userPriv);
         Locale locale = Locale.of("", user.getPlayer().getInfo().getCountry().toUpperCase());
         if(!locale.getDisplayName().equals("XX")) {

@@ -25,7 +25,7 @@ public class FullUser {
         private int pp;
         private int plays;
         private int playtime;
-        private int acc;
+        private double acc;
         private int max_combo;
         private long total_hits;
         private long replay_views;

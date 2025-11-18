@@ -25,10 +25,6 @@ public class Health extends MySQLRoute {
             shiinaAPIHandler.addRequiredParameter("mysql", "service", "error");
         }
 
-        if(!keyWithPrefixExists(App.jedisPool, "shiina:")) {
-            shiinaAPIHandler.addRequiredParameter("redis", "service", "keys not found");
-        }
-
         boolean hasIssues = shiinaAPIHandler.hasIssues();
         HealthReponse healthReponse = new HealthReponse();
         healthReponse.setStatus(hasIssues ? "error" : "ok");

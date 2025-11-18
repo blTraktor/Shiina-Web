@@ -47,25 +47,25 @@ public class ServerStatsCollectorTask extends RunnableCronTask {
             String entry = hourBoundary + ":" + value;
 
             // Add value with hour boundary timestamp as score
-            App.jedisPool.zadd(REDIS_KEY, hourBoundary, entry);
+            App.appCache.zadd(REDIS_KEY, hourBoundary, entry);
 
             // Remove entries older than 24 hours (keep exactly 24 hours of data)
             long cutoffTime = hourBoundary - ONE_DAY_SECONDS;
-            App.jedisPool.zremrangeByScore(REDIS_KEY, "-inf", String.valueOf(cutoffTime));
+            App.appCache.zremrangeByScore(REDIS_KEY, "-inf", String.valueOf(cutoffTime));
 
             // Additional safety: ensure we don't exceed 24 entries
-            long count = App.jedisPool.zcard(REDIS_KEY);
+            long count = App.appCache.zcard(REDIS_KEY);
             if (count > 24) {
-                App.jedisPool.zremrangeByRank(REDIS_KEY, 0, count - 25); // Keep last 24
+                App.appCache.zremrangeByRank(REDIS_KEY, 0, count - 25); // Keep last 24
             }
 
             logger.debug("Stored hourly value {} at timestamp {}. Total entries: {}", value, hourBoundary,
-                    App.jedisPool.zcard(REDIS_KEY));
+                    App.appCache.zcard(REDIS_KEY));
         }
 
         public List<Map<String, Object>> getLast24Hours() {
             // Get all entries (up to 24 hours)
-            List<String> entries = App.jedisPool.zrange(REDIS_KEY, 0, -1);
+            List<String> entries = App.appCache.zrange(REDIS_KEY, 0, -1);
 
             return entries.stream().map(entry -> {
                 String[] parts = entry.split(":");
@@ -80,7 +80,7 @@ public class ServerStatsCollectorTask extends RunnableCronTask {
         }
 
         public int getStoredHoursCount() {
-            return (int) App.jedisPool.zcard(REDIS_KEY);
+            return (int) App.appCache.zcard(REDIS_KEY);
         }
     }
 

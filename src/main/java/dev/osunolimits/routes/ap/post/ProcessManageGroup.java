@@ -49,14 +49,14 @@ public class ProcessManageGroup extends Shiina {
             for(Group g : groups) {
                 if(g.id == Integer.parseInt(req.queryParams("id"))) {
                     for (Integer uid : g.getUserIds()) {
-                    UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + uid), UserInfoObject.class);
+                    UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + uid), UserInfoObject.class);
                     for (dev.osunolimits.models.Group gr : userInfo.groups) {
                         if(g.id == gr.id) {
                             gr.emoji = emoji;
                             gr.name = name;
                         }
                     }
-                    App.jedisPool.set("shiina:user:" + uid, gson.toJson(userInfo));
+                    App.appCache.set("shiina:user:" + uid, gson.toJson(userInfo));
                     }
                 }
             }

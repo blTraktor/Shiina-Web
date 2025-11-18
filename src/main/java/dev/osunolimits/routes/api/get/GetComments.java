@@ -56,7 +56,7 @@ public class GetComments extends MySQLRoute{
             Comment comment = new Comment();
             comment.setTime(getCommentsResultSet.getInt("time"));
             comment.setComment(getCommentsResultSet.getString("comment"));
-            UserInfoObject user = shiinaAPIHandler.getGson().fromJson(App.jedisPool.get("shiina:user:" + getCommentsResultSet.getInt("userid")), UserInfoObject.class); 
+            UserInfoObject user = shiinaAPIHandler.getGson().fromJson(App.appCache.get("shiina:user:" + getCommentsResultSet.getInt("userid")), UserInfoObject.class); 
             if(PermissionHelper.hasPrivileges(user.priv, PermissionHelper.Privileges.SUPPORTER)) {
                 user.groups.add(ShiinaSupporterBadge.getInstance().getGroup());
                 comment.setSupporter(true);

@@ -32,7 +32,7 @@ public class GroupRegistry {
     }
 
     public ArrayList<Group> getCurrentGroupRegistry() {
-        String groupRegistry = App.jedisPool.get("shiina:groupRegistry");
+        String groupRegistry = App.appCache.get("shiina:groupRegistry");
         if (groupRegistry == null) {
             return new ArrayList<Group>();
         }
@@ -64,7 +64,7 @@ public class GroupRegistry {
             App.log.error("Failed to revalidate group registry", e);
         }
 
-        App.jedisPool.set("shiina:groupRegistry", gson.toJson(groups));
+        App.appCache.set("shiina:groupRegistry", gson.toJson(groups));
     }
 
 

@@ -84,7 +84,7 @@ public class Users extends Shiina {
             }
             ApUser user = new ApUser();
             user.id = userResult.getInt("id");
-            UserInfoObject userInfo = gson.fromJson(App.jedisPool.get("shiina:user:" + user.id), UserInfoObject.class);
+            UserInfoObject userInfo = gson.fromJson(App.appCache.get("shiina:user:" + user.id), UserInfoObject.class);
             user.name = userInfo.name;
             user.priv = Privileges.fromInt(userInfo.priv);
             user.groups = userInfo.getGroups();

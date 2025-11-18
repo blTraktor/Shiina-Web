@@ -33,13 +33,13 @@ public class ShiinaRoute {
         ShiinaRequest request = new ShiinaRequest();
         request.mysql = Database.getConnection();
         if (req.cookie("shiina") != null) {
-            String userJson = App.jedisPool.get("shiina:auth:" + req.cookie("shiina"));
+            String userJson = App.appCache.get("shiina:auth:" + req.cookie("shiina"));
 
             Auth.SessionUser user = gson.fromJson(userJson, Auth.SessionUser.class);
 
             if (user != null) {
                 Auth.User referenceUser = new Auth().new User();
-                String userInfoJson = App.jedisPool.get("shiina:user:" + user.id);
+                String userInfoJson = App.appCache.get("shiina:user:" + user.id);
                 UserInfoObject infoObject = gson.fromJson(userInfoJson, UserInfoObject.class);
                 referenceUser.id = user.id;
                 referenceUser.name = infoObject.name;

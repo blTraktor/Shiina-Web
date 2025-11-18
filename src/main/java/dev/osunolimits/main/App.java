@@ -6,6 +6,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dev.osunolimits.common.AppCache;
 import dev.osunolimits.main.init.StartupDatabaseTask;
 import dev.osunolimits.main.init.StartupOkHttpTask;
 import dev.osunolimits.main.init.StartupSetupCronTask;
@@ -77,12 +78,14 @@ import dev.osunolimits.routes.api.get.auth.GetLastDayPlayerAdmin;
 import dev.osunolimits.routes.api.get.auth.HandleBeatmapFavorite;
 import dev.osunolimits.routes.api.get.auth.HandleClanAction;
 import dev.osunolimits.routes.api.get.auth.HandleClanRequest;
+import dev.osunolimits.routes.api.get.auth.HandleOnBoarding;
 import dev.osunolimits.routes.api.get.auth.HandleRelationship;
 import dev.osunolimits.routes.api.get.image.GetBanner;
 import dev.osunolimits.routes.get.Beatmap;
 import dev.osunolimits.routes.get.Beatmaps;
 import dev.osunolimits.routes.get.Bot;
 import dev.osunolimits.routes.get.Leaderboard;
+import dev.osunolimits.routes.get.OnBoarding;
 import dev.osunolimits.routes.get.User;
 import dev.osunolimits.routes.get.UserScore;
 import dev.osunolimits.routes.get.auth.Login;
@@ -96,6 +99,7 @@ import dev.osunolimits.routes.get.modular.ModuleRegister;
 import dev.osunolimits.routes.get.modular.ShiinaModule;
 import dev.osunolimits.routes.get.modular.home.BigHeader;
 import dev.osunolimits.routes.get.modular.home.MoreInfos;
+import dev.osunolimits.routes.get.redirect.BeatmapSetRedirect;
 import dev.osunolimits.routes.get.settings.Authentication;
 import dev.osunolimits.routes.get.settings.Customization;
 import dev.osunolimits.routes.get.settings.Data;
@@ -135,11 +139,12 @@ public class App {
     public static Dotenv env;
     public static Map<String, Object> customization;
 
+    public static AppCache appCache = new AppCache();
     public static JedisPooled jedisPool;
     public static WebServer webServer;
 
-    public static String version = "1.8prod";
-    public static String dbVersion = "1.8";
+    public static String version = "1.9.0prod";
+    public static String dbVersion = "1.9.0";
 
     public static String appSecret = Auth.generateNewToken();
 
@@ -154,8 +159,8 @@ public class App {
             log.info("Also some stuff will not work when not running a prod instance in the bg!");
         }
 
-        env = Dotenv.configure().directory(".config/").load();
-        loggerEnv = Dotenv.configure().directory(".config/").filename("logger.env").load();
+        env = Dotenv.configure().ignoreIfMissing().systemProperties().directory(".config/").load();
+        loggerEnv = Dotenv.configure().systemProperties().directory(".config/").filename("logger.env").load();
         
         StartupTaskRunner.register(new StartupTextTask());
         StartupTaskRunner.register(new StartupLoggerLevelTask());
@@ -212,10 +217,13 @@ public class App {
         WebServer.post("/settings/userpage", new HandleUserpageChange());
         WebServer.post("/settings/banner", new HandleBannerChange());
 
+        WebServer.get("/beatmapset/:id", new BeatmapSetRedirect());
+
         WebServer.get("/login", new Login());
         WebServer.get("/register", new Register());
         WebServer.post("/login", new HandleLogin());
         WebServer.post("/logout", new HandleLogout());
+        WebServer.get("/onboarding", new OnBoarding());
 
         WebServer.get("/auth/recover", new Recover());
         WebServer.post("/recover", new HandleRecovery());
@@ -232,6 +240,7 @@ public class App {
         WebServer.get("/api/v1/get_playcount_graph", new GetPlaycountGraph());
         WebServer.get("/api/v1/search", new Search());
 
+        WebServer.get("/api/v1/onboarding", new HandleOnBoarding());
         WebServer.get("/api/v1/manage_cl", new HandleClanAction());
         WebServer.get("/api/v1/join_clan", new HandleClanRequest());
         WebServer.get("/api/v1/update_rel", new HandleRelationship());

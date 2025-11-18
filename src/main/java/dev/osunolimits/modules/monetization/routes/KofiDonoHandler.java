@@ -107,11 +107,11 @@ public class KofiDonoHandler extends Shiina {
 
         Thread.sleep(500);
 
-        UserInfoObject obj = GSON.fromJson(App.jedisPool.get("shiina:user:" + userId), UserInfoObject.class);
+        UserInfoObject obj = GSON.fromJson(App.appCache.get("shiina:user:" + userId), UserInfoObject.class);
         ResultSet privRs = shiina.mysql.Query("SELECT `priv` FROM `users` WHERE `id` = ?", giveDonatorInput.getId());
         obj.priv = privRs.next() ? privRs.getInt("priv") : 0;
         String userJson = GSON.toJson(obj);
-        App.jedisPool.set("shiina:user:" + userId, userJson);
+        App.appCache.set("shiina:user:" + userId, userJson);
 
         log.info("Kofi Donation: userId={}, months={}, amount={}, transactionId={}", userId, months, amount,
                 transactionId);

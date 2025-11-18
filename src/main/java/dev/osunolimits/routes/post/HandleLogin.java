@@ -24,7 +24,7 @@ public class HandleLogin extends Shiina {
         String captchaResponse = req.queryParams("cf-turnstile-response");
 
         if(req.cookie("shiina") != null) {
-            if(App.jedisPool.get("shiina:auth:" + req.cookie("shiina")) != null) {
+            if(App.appCache.get("shiina:auth:" + req.cookie("shiina")) != null) {
                 shiina.data.put("info", "You are already logged in");
                 return renderTemplate("login.html", shiina, res, req);
             }
@@ -92,12 +92,21 @@ public class HandleLogin extends Shiina {
             res.cookie("shiina", new SessionBuilder(userId, req).build());
         }
 
+        ResultSet dbPrivData = shiina.mysql.Query("SELECT priv FROM users WHERE id = ?", userId);
+        int realPriv = 0;
+        if(dbPrivData.next()) {
+            realPriv = dbPrivData.getInt("priv");
+        }
+
+        if(realPriv == 1) {
+            return redirect(res, shiina, "/");
+        }
+
         String refPath = req.queryParams("refPath");
         if(refPath != null && !refPath.isEmpty()) {
-            res.redirect(refPath);
-        } else {
-            res.redirect("/?register=success");
+            return redirect(res, shiina, refPath);
         }
-        return notFound(res, shiina);
+        
+        return redirect(res, shiina, "/");
     }
 }

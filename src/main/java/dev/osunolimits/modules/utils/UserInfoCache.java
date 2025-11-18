@@ -70,8 +70,8 @@ public class UserInfoCache {
             }
 
             for (UserInfoObject user : users) {
-                if (App.jedisPool.get("shiina:user:" + user.id) == null) {
-                    App.jedisPool.set("shiina:user:" + user.id, gson.toJson(user));
+                if (App.appCache.get("shiina:user:" + user.id) == null) {
+                    App.appCache.set("shiina:user:" + user.id, gson.toJson(user));
                 }
             }
         } catch (SQLException e) {
@@ -111,7 +111,7 @@ public class UserInfoCache {
                     return;
                 }
     
-                App.jedisPool.set("shiina:user:" + user.id, gson.toJson(user));
+                App.appCache.set("shiina:user:" + user.id, gson.toJson(user));
                 
             }else {
                 log.error("User not found in database: " + userId);
@@ -125,7 +125,7 @@ public class UserInfoCache {
     }
 
     public void reloadUserIfNotPresent(int userId) {
-        if (App.jedisPool.get("shiina:user:" + userId) == null) {
+        if (App.appCache.get("shiina:user:" + userId) == null) {
             reloadUser(userId);
         }else {
             mysql.close();

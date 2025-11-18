@@ -5,9 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -17,8 +17,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import ch.qos.logback.classic.Logger;
+import dev.osunolimits.modules.ShiinaRoute.ShiinaRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import spark.Request;
+import spark.Response;
 
 public class ModuleRegister {
 
@@ -40,6 +43,17 @@ public class ModuleRegister {
 
     public static List<ShiinaModule> getModulesForPage(String page) {
         return loadedModules.get(page);
+    }
+
+    public static List<String> getModulesRawForPage(String page, Request req, Response res, ShiinaRequest shiina) {
+         if (ModuleRegister.getModulesForPage(page) != null) {
+            List<String> modulesRaw = new ArrayList<>();
+            for (ShiinaModule module : ModuleRegister.getModulesForPage(page)) {
+                modulesRaw.add(module.handle(req, res, shiina));
+            }
+            return modulesRaw;
+        }
+        return List.of();
     }
 
     public static void reloadModuleConfigurations() {
@@ -147,7 +161,12 @@ public class ModuleRegister {
                     }
                 }
             }
-            log.info("Loaded modules for page: " + foundModule.getPage() + ": " + loaded);
+            List<String> loadedNames = new ArrayList<>();
+            for(ShiinaModule module : loaded) {
+                loadedNames.add(module.moduleName());
+            }
+
+            log.info("Loaded modules for page: " + foundModule.getPage() + ": " + loadedNames);
             loadedModules.put(foundModule.getPage(), loaded);
         }
     }

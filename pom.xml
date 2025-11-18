@@ -7,7 +7,7 @@
 
   <groupId>dev.osunolimits</groupId>
   <artifactId>shiina</artifactId>
-  <version>1.8</version>
+  <version>1.9</version>
 
   <name>shiina</name>
   <url>https://osunolimits.dev</url>
@@ -16,6 +16,46 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+
+    <!-- Util dependencies -->
+    <opencsv.version>5.12.0</opencsv.version>
+    <uap-java.version>1.6.1</uap-java.version>
+    <dotenv-java.version>3.2.0</dotenv-java.version>
+    <thumbnailator.version>0.4.21</thumbnailator.version>
+    <lombok.version>1.18.42</lombok.version>
+    <spring-security.version>6.5.6</spring-security.version>
+    <commonmark.version>0.27.0</commonmark.version>
+    <snakeyml.version>2.5</snakeyml.version>
+    <kefirbb.version>1.5</kefirbb.version>
+    <owasp-encoder.version>1.3.1</owasp-encoder.version>
+    <discord-webhooks.version>0.8.4</discord-webhooks.version>
+    <minifier.version>1.3</minifier.version>
+    <caffeine.version>3.2.3</caffeine.version>
+
+    <!-- Test dependencies -->
+    <junit-jupiter.version>6.0.0</junit-jupiter.version>
+
+    <!-- Database dependencies -->
+    <hikaricp.version>7.0.2</hikaricp.version>
+    <mysql-connector.version>9.5.0</mysql-connector.version>
+    <jedis.version>7.0.0</jedis.version>
+
+    <!-- Main dependencies -->
+    <spark.version>40e9a4fc7e</spark.version>
+    <spark-freemarker.version>2.7.1</spark-freemarker.version>
+    <logback.version>1.5.20</logback.version>
+    <okhttp.version>4.12.0</okhttp.version>
+
+    <!-- Build dependencies -->
+    <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
+    <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
+    <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
+    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+    <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
+    <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+    <maven-exec-mojo-plugin.version>3.5.1</maven-exec-mojo-plugin.version>
+    <maven-shade-plugin.version>3.6.1</maven-shade-plugin.version>
+    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
   </properties>
 
   <repositories>
@@ -29,52 +69,108 @@
     <dependency>
       <groupId>com.opencsv</groupId>
       <artifactId>opencsv</artifactId>
-      <version>5.12.0</version>
+      <version>${opencsv.version}</version>
     </dependency>
     <dependency>
       <groupId>com.github.ua-parser</groupId>
       <artifactId>uap-java</artifactId>
-      <version>1.6.1</version>
+      <version>${uap-java.version}</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.5.18</version>
+      <version>${logback.version}</version>
     </dependency>
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
-      <version>7.0.2</version>
+      <version>${hikaricp.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.ben-manes.caffeine</groupId>
+      <artifactId>caffeine</artifactId>
+      <version>${caffeine.version}</version>
     </dependency>
     <dependency>
       <groupId>io.github.cdimascio</groupId>
       <artifactId>dotenv-java</artifactId>
-      <version>3.2.0</version>
+      <version>${dotenv-java.version}</version>
     </dependency>
     <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
-      <version>9.4.0</version>
+      <version>${mysql-connector.version}</version>
     </dependency>
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
-      <version>6.2.0</version>
+      <version>${jedis.version}</version>
     </dependency>
     <dependency>
       <groupId>net.coobird</groupId>
       <artifactId>thumbnailator</artifactId>
-      <version>0.4.20</version>
+      <version>${thumbnailator.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-crypto</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.commonmark</groupId>
+      <artifactId>commonmark</artifactId>
+      <version>${commonmark.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snakeyml.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kefirsf</groupId>
+      <artifactId>kefirbb</artifactId>
+      <version>${kefirbb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.owasp.encoder</groupId>
+      <artifactId>encoder</artifactId>
+      <version>${owasp-encoder.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>club.minnced</groupId>
+      <artifactId>discord-webhooks</artifactId>
+      <version>${discord-webhooks.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.logicsquad</groupId>
+      <artifactId>minifier</artifactId>
+      <version>${minifier.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit-jupiter.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.github.bowika</groupId>
       <artifactId>spark</artifactId>
-      <version>40e9a4fc7e</version>
+      <version>${spark.version}</version>
     </dependency>
     <dependency>
       <groupId>com.sparkjava</groupId>
       <artifactId>spark-template-freemarker</artifactId>
-      <version>2.7.1</version>
+      <version>${spark-freemarker.version}</version>
       <exclusions>
         <exclusion>
           <artifactId>spark-core</artifactId>
@@ -82,162 +178,90 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.42</version>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>4.12.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-crypto</artifactId>
-      <version>6.5.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.commonmark</groupId>
-      <artifactId>commonmark</artifactId>
-      <version>0.26.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.yaml</groupId>
-      <artifactId>snakeyaml</artifactId>
-      <version>2.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.kefirsf</groupId>
-      <artifactId>kefirbb</artifactId>
-      <version>1.5</version>
-    </dependency>
-    <dependency>
-      <groupId>org.owasp.encoder</groupId>
-      <artifactId>encoder</artifactId>
-      <version>1.3.1</version>
-    </dependency>
-    <dependency>
-      <groupId>club.minnced</groupId>
-      <artifactId>discord-webhooks</artifactId>
-      <version>0.8.4</version>
-    </dependency>
-    <dependency>
-      <groupId>net.logicsquad</groupId>
-      <artifactId>minifier</artifactId>
-      <version>1.3</version>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>5.11.4</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.11.4</version>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.11.3</version>
-          <configuration>
-            <noqualifier>all</noqualifier>
-          </configuration>
-          <executions>
-            <execution>
-              <id>aggregate</id>
-              <goals>
-                <goal>aggregate</goal>
-              </goals>
-              <configuration>
-                <reportOutputDirectory>${project.reporting.outputDirectory}</reportOutputDirectory>
-                <destDir>javadoc</destDir>
-              </configuration>
-            </execution>
-            <execution>
-              <id>attach-javadocs</id>
-              <phase>package</phase>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>3.5.1</version>
-          <configuration>
-            <mainClass>dev.osunolimits.main.App</mainClass>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>3.6.1</version>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>shade</goal>
-              </goals>
-              <configuration>
-                <transformers>
-                  <transformer
-                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                    <mainClass>dev.osunolimits.plugins.Main</mainClass>
-                  </transformer>
-                </transformers>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <noqualifier>all</noqualifier>
+        </configuration>
+        <executions>
+          <execution>
+            <id>aggregate</id>
+            <goals>
+              <goal>aggregate</goal>
+            </goals>
+            <configuration>
+              <reportOutputDirectory>${project.reporting.outputDirectory}</reportOutputDirectory>
+              <destDir>javadoc</destDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>${maven-clean-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${maven-install-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${maven-exec-mojo-plugin.version}</version>
+        <configuration>
+          <mainClass>dev.osunolimits.main.App</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>${maven-shade-plugin.version}</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>dev.osunolimits.main.App</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
